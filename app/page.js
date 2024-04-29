@@ -1,7 +1,4 @@
-
 import React from "react";
-import {Image} from "@nextui-org/react";
-import {Avatar, AvatarGroup, AvatarIcon} from "@nextui-org/react";
 
 export default function Home() {
   return (
