@@ -1,9 +1,10 @@
 import React from "react";
+import { title } from "../tailwind-config";
 
 const Contact = () => {
   return (
     <div className="bg-black text-white p-8">
-      <h2 className="text-2xl font-semibold mb-4">Contactez-moi</h2>
+      <h1 className={title()}>Contactez-moi</h1>
       {/* Ajoutez un formulaire de contact ou vos coordonnées ici */}
       <form>
         <div className="mb-4">

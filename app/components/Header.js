@@ -15,7 +15,7 @@ const Header = () => {
             isBlurred
             width={360}
             alt="Photo de Novikova Elena"
-            src="/assets/me3.webp"
+            src="/assets/me0.png"
           />
         </div>
         <div className="md:w-1/2 text-center">
@@ -31,13 +31,13 @@ const Header = () => {
             <Link
               isExternal
               href="https://github.com/ElenaTrif"
-              className={buttonStyles({ color: "secondary", radius: "full", variant: "shadow", size: "lg" })}
+              className={buttonStyles({ color: "primary", radius: "full", variant: "shadow", size: "lg" })}
             >
               Mes projets
             </Link>
             <Link
               isExternal
-              className={`${buttonStyles({ variant: "bordered", radius: "full", size: "lg" })} border-secondary-500`}
+              className={`${buttonStyles({ variant: "bordered", radius: "full", size: "lg" })} border-primary-500`}
               href="https://github.com/ElenaTrif"
             >
               <GithubIcon size={20} />
