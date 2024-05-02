@@ -43,7 +43,7 @@ const Skills = () => {
     <div className="mt-16" id="skills">
       <h1 className={`${title()} relative`}>
         Compétences
-        <span className="absolute bottom-0 left-0 w-full h-1 bg-purple-500"></span>
+        <span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-b from-[#FF1CF7] to-[#b249f8]"></span>
       </h1>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-8">
         {skills.map((skill, index) => (

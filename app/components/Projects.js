@@ -89,7 +89,7 @@ const Projects = () => {
     <div className="mt-16" id="portfolio">
       <h1 className={`${title()} relative`}>
         Mes projets
-        <span className="absolute bottom-0 left-0 w-full h-1 bg-purple-500"></span>
+        <span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-b from-[#FF1CF7] to-[#b249f8]"></span>
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 mt-10">
         {projects.map((project, index) => (
