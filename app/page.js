@@ -6,18 +6,20 @@ import AboutMe from "./components/AboutMe";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import Contact from "./components/Contact";
+import Formation from "./components/Formation";
 
 export default function Home() {
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
       <Navbar />
-      <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      <div className="flex-grow max-w-screen-2xl mx-auto px-4 py-8">
         <Header />
         <AboutMe />
         <Projects />
+        <Formation />
         <Skills />
         <Contact />
-      </main>
+      </div>
       <Footer />
     </div>
   );

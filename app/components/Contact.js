@@ -1,28 +1,24 @@
 import React from "react";
 import { title } from "../tailwind-config";
+import { FaEnvelope, FaGithub } from "react-icons/fa";
 
-const Contact = () => {
+const ContactForm = () => {
   return (
-    <div className="bg-black text-white p-8">
-      <h1 className={title()}>Contactez-moi</h1>
-      {/* Ajoutez un formulaire de contact ou vos coordonnées ici */}
-      <form>
-        <div className="mb-4">
-          <label className="block text-lg mb-2" htmlFor="name">Nom :</label>
-          <input className="w-full p-2 rounded bg-gray-800 text-white" type="text" id="name" name="name" />
-        </div>
-        <div className="mb-4">
-          <label className="block text-lg mb-2" htmlFor="email">Email :</label>
-          <input className="w-full p-2 rounded bg-gray-800 text-white" type="email" id="email" name="email" />
-        </div>
-        <div className="mb-4">
-          <label className="block text-lg mb-2" htmlFor="message">Message :</label>
-          <textarea className="w-full p-2 rounded bg-gray-800 text-white" id="message" name="message" rows="4"></textarea>
-        </div>
-        <button className="bg-pink-500 text-white py-2 px-4 rounded hover:bg-pink-600 transition duration-300">Envoyer</button>
-      </form>
+    <div className="mt-16" id="contact">
+      <h1 className={`${title()} relative`}>
+        Contactez-moi
+        <span className="absolute bottom-0 left-0 w-full h-1 bg-purple-500"></span>
+      </h1>
+      <div className="flex items-center my-4">
+        <FaEnvelope className="mr-2 z-10" />
+        <a href="mailto:novicovalena@yahoo.fr" style={{ zIndex: 10 }}>novicovalena@yahoo.fr</a>
+      </div>
+      <div className="flex items-center my-4">
+        <FaGithub className="mr-2 z-10" />
+        <a href="https://github.com/ElenaTrif" style={{ zIndex: 10 }}>GitHub</a>
+      </div>
     </div>
   );
 };
 
-export default Contact;
+export default ContactForm;

@@ -1,10 +1,11 @@
 "use client"
 
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { Card, CardHeader, CardFooter, Image } from "@nextui-org/react";
 import { button as buttonStyles } from "@nextui-org/theme";
 import { GithubIcon } from "./Icons";
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button } from "@nextui-org/react";
+import { title } from "../tailwind-config";
 
 const Projects = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,7 +17,7 @@ const Projects = () => {
       id: 1,
       title: "Argent Bank",
       description: "Mise en place d'une application bancaire avec React et Redux.",
-      imageSrc: "/assets/bank-tree.jpeg",
+      imageSrc: "/assets/projets/bank-tree.jpeg",
       githubLink: "https://github.com/ElenaTrif/ArgentBank",
       websiteLink: "https://github.com/ElenaTrif/ArgentBank",
       titleModal: "Projet Argent Bank",
@@ -26,7 +27,7 @@ const Projects = () => {
       id: 2,
       title: "Kasa",
       description: "Application de location immobilière faite avec React.",
-      imageSrc: "/assets/kasa.webp",
+      imageSrc: "/assets/projets/kasa.png",
       githubLink: "https://github.com/ElenaTrif/kasa",
       websiteLink: "https://github.com/ElenaTrif/kasa",
       titleModal: "Projet Kasa",
@@ -36,7 +37,7 @@ const Projects = () => {
       id: 3,
       title: "Sophie Bluel",
       description: "Portfolio de designer réalisé en HTML, CSS, JavaScript.",
-      imageSrc: "/assets/sophie-bluel.png",
+      imageSrc: "/assets/projets/sophie-bluel.png",
       githubLink: "https://github.com/ElenaTrif/Portfolio-architecte-sophie-bluel",
       websiteLink: "https://github.com/ElenaTrif/Portfolio-architecte-sophie-bluel",
       titleModal: "Projet Sophie Bluel",
@@ -46,7 +47,7 @@ const Projects = () => {
       id: 4,
       title: "Ohmyfood",
       description: "Developpement du site des menus des restaurants avec HTML et SASS.",
-      imageSrc: "/assets/ohmyfood.jpg",
+      imageSrc: "/assets/projets/ohmyfood.jpg",
       githubLink: "https://github.com/ElenaTrif/ohmyfood",
       websiteLink: "https://ohmyfood-4gwn6re07-elenas-projects-e3d2b6db.vercel.app",
       titleModal: "Projet Ohmyfood",
@@ -56,7 +57,7 @@ const Projects = () => {
       id: 5,
       title: "Print it",
       description: "Dynamisation du site statique d'une imprimerie avec JavaScript.",
-      imageSrc: "/assets/colors.jpg",
+      imageSrc: "/assets/projets/colors.jpg",
       githubLink: "https://github.com/ElenaTrif/print-it",
       websiteLink: "https://print-it-two.vercel.app",
       titleModal: "Projet Print it",
@@ -66,7 +67,7 @@ const Projects = () => {
       id: 6,
       title: "Nina Carducci",
       description: "Amélioration de la performance du site avec SEO, Lighthouse et Wave.",
-      imageSrc: "/assets/nina.webp",
+      imageSrc: "/assets/projets/nina.webp",
       githubLink: "https://github.com/ElenaTrif/ninacarducci",
       websiteLink: "https://ninacarducci-gkx2kvm6b-elenas-projects-e3d2b6db.vercel.app",
       titleModal: "Projet Nina Carducci",
@@ -74,10 +75,10 @@ const Projects = () => {
     },
   ];
 
-  const handleProjectClick = (index) => {
+  const handleProjectClick = useCallback((index) => {
     setIsOpen(true);
     setSelectedProject(projects[index]);
-  };
+  }, [projects]);
 
   const handleCloseModal = () => {
     setIsOpen(false);
@@ -85,8 +86,11 @@ const Projects = () => {
   };
 
   return (
-    <div className="mt-12">
-      <h1 className="text-3xl font-bold mb-8">Portfolio</h1>
+    <div className="mt-16" id="portfolio">
+      <h1 className={`${title()} relative`}>
+        Mes projets
+        <span className="absolute bottom-0 left-0 w-full h-1 bg-purple-500"></span>
+      </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 mt-10">
         {projects.map((project, index) => (
           <Card
@@ -118,6 +122,7 @@ const Projects = () => {
                   })} border-white-500`}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
                 >
                   <GithubIcon size={20} />
                   GitHub
@@ -133,6 +138,7 @@ const Projects = () => {
                 })}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
               >
                 Demo Site
               </a>

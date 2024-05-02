@@ -19,7 +19,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <NextUINavbar maxWidth="xl" position="sticky">
+    <NextUINavbar maxWidth="2xl" position="sticky" className="w-full">
       <NavbarContent>
         <NavbarBrand>
           <NextLink className="flex justify-start items-center gap-2" href="/">
@@ -30,7 +30,7 @@ const Navbar = () => {
         <ul className="hidden sm:flex gap-2 md:gap-6 justify-start ml-2">
           <NavbarMenuItem>
             <NextLink href="#about">
-              <p>About me</p>
+              <p>About</p>
             </NextLink>
           </NavbarMenuItem>
           <NavbarMenuItem>
