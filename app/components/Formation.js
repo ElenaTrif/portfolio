@@ -15,7 +15,7 @@ const Formation = () => {
                         alt="nextui logo"
                         height={40}
                         radius="sm"
-                        src="/assets/skills/HTML.png"
+                        src="/assets/skills/openclassrooms.png"
                         width={40}
                     />
                     <div className="flex flex-col">
