@@ -5,12 +5,9 @@ import {
   Navbar as NextUINavbar,
   NavbarContent,
   NavbarBrand,
-  NavbarItem,
   NavbarMenuToggle,
   NavbarMenu,
   NavbarMenuItem,
-  Link,
-  Button,
 } from "@nextui-org/navbar";
 import NextLink from "next/link";
 import { PortfolioIcon } from "./Icons";

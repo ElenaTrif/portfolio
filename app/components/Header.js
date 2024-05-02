@@ -23,7 +23,7 @@ const Header = () => {
           <h1 className={title({ color: "violet" })}>vos idées </h1>
           <h1 className={title()}>en réalité digitale.</h1>
           <h2 className={subtitle({ class: "mt-4" })}>
-            L'art du développement web, à votre service.
+            L&apos;art du développement web, à votre service.
           </h2>
           <div className="flex flex-col md:flex-row justify-center items-center gap-3 mt-6">
             <Link

@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useMemo } from "react";
 import { Card, CardHeader, CardFooter, Image } from "@nextui-org/react";
 import { button as buttonStyles } from "@nextui-org/theme";
 import { GithubIcon } from "./Icons";
@@ -12,7 +12,7 @@ const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
 
 
-  const projects = [
+  const projects = useMemo(() => [
     {
       id: 1,
       title: "Argent Bank",
@@ -73,12 +73,12 @@ const Projects = () => {
       titleModal: "Projet Nina Carducci",
       descModal: "Optimisation du référencement d'un site de photographe, en identifiant et en améliorant ses performances, son accessibilité et en mettant en place le référencement local, tout en fournissant un rapport détaillé des actions effectuées.",
     },
-  ];
+  ], []);
 
-  const handleProjectClick = useCallback((index) => {
+  const handleProjectClick = (index) => {
     setIsOpen(true);
     setSelectedProject(projects[index]);
-  }, [projects]);
+  };
 
   const handleCloseModal = () => {
     setIsOpen(false);

@@ -1,6 +1,6 @@
 import React from "react";
 import { title } from "../tailwind-config";
-import { Card, CardHeader, CardBody, CardFooter, Divider, Link, Image } from "@nextui-org/react";
+import { Card, CardHeader, CardBody, CardFooter, Divider, Image } from "@nextui-org/react";
 
 const Formation = () => {
     return (
