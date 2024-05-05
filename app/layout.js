@@ -17,7 +17,9 @@ export default function RootLayout({ children }) {
             className="absolute top-0 left-0 w-full h-full object-cover"
             src="/assets/nuit.png"
             alt="Nuit étoilée"
-            layout="fill"
+            width={1920} // Remplacer la valeur par la largeur réelle de votre image
+            height={1080} // Remplacer la valeur par la hauteur réelle de votre image
+            style={{ objectFit: 'cover', objectPosition: 'center' }} 
           />
         </div>
         <Providers> {/* Utilisez le composant Providers ici */}

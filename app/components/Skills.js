@@ -60,6 +60,7 @@ const Skills = () => {
               alt={skill.title}
               className="object-contain"
               src={skill.imageSrc}
+              style={{ minWidth: '50px' }}
             />
             <p className="mt-2 text-center">{skill.title}</p>
           </Card>
