@@ -20,7 +20,7 @@ const Skills = () => {
       title: "JavaScript",
       imageSrc: "/assets/skills/js-2.png"
     },
-    
+
     {
       title: "Sass",
       imageSrc: "/assets/skills/sass2.png"
@@ -34,9 +34,17 @@ const Skills = () => {
       imageSrc: "/assets/skills/figma.png"
     },
     {
-      title: "MongoDb",
+      title: "MongoDB",
       imageSrc: "/assets/skills/mongodb.png"
-    }
+    },
+    {
+      title: "Next Js",
+      imageSrc: "/assets/skills/next1.png"
+    },
+    {
+      title: "Tailwind",
+      imageSrc: "/assets/skills/tailwind1.png"
+    },
   ];
 
   return (

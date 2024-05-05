@@ -15,8 +15,8 @@ export default function RootLayout({ children }) {
           <div className="absolute top-0 left-0 w-full h-full bg-opacity-50 bg-black"></div>
           <Image
             className="absolute top-0 left-0 w-full h-full object-cover"
-            src="/assets/skills/nuit.png"
-            alt="Voie lactée"
+            src="/assets/nuit.png"
+            alt="Nuit étoilée"
             layout="fill"
           />
         </div>

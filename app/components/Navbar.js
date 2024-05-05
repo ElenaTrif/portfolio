@@ -27,17 +27,22 @@ const Navbar = () => {
         <ul className="hidden sm:flex gap-2 md:gap-6 justify-start ml-2">
           <NavbarMenuItem>
             <NextLink href="#about">
-              <p>About</p>
+              <p>A propos</p>
             </NextLink>
           </NavbarMenuItem>
           <NavbarMenuItem>
             <NextLink href="#portfolio">
-              <p>Portfolio</p>
+              <p>Projets</p>
+            </NextLink>
+          </NavbarMenuItem>
+          <NavbarMenuItem>
+            <NextLink href="#formation">
+              <p>Formation</p>
             </NextLink>
           </NavbarMenuItem>
           <NavbarMenuItem>
             <NextLink href="#skills">
-              <p>Skills</p>
+              <p>Compétences</p>
             </NextLink>
           </NavbarMenuItem>
           <NavbarMenuItem>
@@ -56,17 +61,22 @@ const Navbar = () => {
       <NavbarMenu show={isMenuOpen}>
         <NavbarMenuItem>
           <NextLink href="#about">
-            <p>About me</p>
+            <p>A propos</p>
           </NextLink>
         </NavbarMenuItem>
         <NavbarMenuItem>
           <NextLink href="#portfolio">
-            <p>Portfolio</p>
+            <p>Projets</p>
           </NextLink>
         </NavbarMenuItem>
         <NavbarMenuItem>
+            <NextLink href="#formation">
+              <p>Formation</p>
+            </NextLink>
+          </NavbarMenuItem>
+        <NavbarMenuItem>
           <NextLink href="#skills">
-            <p>Skills</p>
+            <p>Compétences</p>
           </NextLink>
         </NavbarMenuItem>
         <NavbarMenuItem>

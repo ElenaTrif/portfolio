@@ -4,7 +4,7 @@ import React, { useState, useCallback, useMemo } from "react";
 import { Card, CardHeader, CardFooter, Image } from "@nextui-org/react";
 import { button as buttonStyles } from "@nextui-org/theme";
 import { GithubIcon } from "./Icons";
-import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button } from "@nextui-org/react";
+import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, Chip } from "@nextui-org/react";
 import { title } from "../tailwind-config";
 
 const Projects = () => {
@@ -17,61 +17,79 @@ const Projects = () => {
       id: 1,
       title: "Argent Bank",
       description: "Mise en place d'une application bancaire avec React et Redux.",
-      imageSrc: "/assets/projets/bank-tree.jpeg",
+      imageSrc: "/assets/projets/bank-tree.webp",
+      alt: "Un verre transparent avec des monnaies d'ou pousse une plante verte.",
       githubLink: "https://github.com/ElenaTrif/ArgentBank",
       websiteLink: "https://github.com/ElenaTrif/ArgentBank",
+      descButton: "Code Source",
       titleModal: "Projet Argent Bank",
       descModal: "Développement front-end d'une application bancaire avec React et Redux, intégration avec un back-end via des appels API.",
+      languages: ["React", "Redux", "API", "Swagger"],
     },
     {
       id: 2,
       title: "Kasa",
       description: "Application de location immobilière faite avec React.",
-      imageSrc: "/assets/projets/kasa.png",
+      imageSrc: "/assets/projets/kasa.webp",
+      alt: "Une pièce d'un appartement avec un canapé d'angle, une table et une télévision.",
       githubLink: "https://github.com/ElenaTrif/kasa",
       websiteLink: "https://github.com/ElenaTrif/kasa",
+      descButton: "Code Source",
       titleModal: "Projet Kasa",
       descModal: "Développement d'une application web de location immobilière en utilisant React et React Router, en suivant les maquettes fournies et en utilisant des données simulées extraites d'un fichier JSON.",
+      languages: ["React", "SASS", "Figma"],
     },
     {
       id: 3,
       title: "Sophie Bluel",
       description: "Portfolio de designer réalisé en HTML, CSS, JavaScript.",
-      imageSrc: "/assets/projets/sophie-bluel.png",
+      imageSrc: "/assets/projets/sophie-bluel.webp",
+      alt: "Portrait d'une femme architecte Sophie Bluel.",
       githubLink: "https://github.com/ElenaTrif/Portfolio-architecte-sophie-bluel",
       websiteLink: "https://github.com/ElenaTrif/Portfolio-architecte-sophie-bluel",
+      descButton: "Code Source",
       titleModal: "Projet Sophie Bluel",
       descModal: "Création d'une page web dynamique pour le site d'une architecte d'intérieur en utilisant JavaScript et en communicant avec une API.",
+      languages: ["JavaScript", "NodeJs"],
     },
     {
       id: 4,
       title: "Ohmyfood",
       description: "Developpement du site des menus des restaurants avec HTML et SASS.",
-      imageSrc: "/assets/projets/ohmyfood.jpg",
+      imageSrc: "/assets/projets/ohmyfood.webp",
+      alt: "Une assiette contenant un repas gastronomique.",
       githubLink: "https://github.com/ElenaTrif/ohmyfood",
       websiteLink: "https://ohmyfood-4gwn6re07-elenas-projects-e3d2b6db.vercel.app",
+      descButton: "Demo site",
       titleModal: "Projet Ohmyfood",
       descModal: "Amélioration de l'interface mobile-first d'une start-up, en intégrant une maquette responsive et en mettant en œuvre des animations CSS pour améliorer l'expérience utilisateur, tout en utilisant Sass et Git/GitHub.",
+      languages: ["HTML", , "CSS", "SASS"],
     },
     {
       id: 5,
       title: "Print it",
       description: "Dynamisation du site statique d'une imprimerie avec JavaScript.",
-      imageSrc: "/assets/projets/colors.jpg",
+      imageSrc: "/assets/projets/colors.webp",
+      alt: "Rayures de différentes couleurs vives.",
       githubLink: "https://github.com/ElenaTrif/print-it",
       websiteLink: "https://print-it-two.vercel.app",
+      descButton: "Demo site",
       titleModal: "Projet Print it",
       descModal: "Initiation au langage JavaScript en dynamisant un site web d'une imprimerie avec un carrousel interactif, démontrant les fondamentaux du développement web interactif.",
+      languages: ["JavaScript", "HTML", "CSS"],
     },
     {
       id: 6,
       title: "Nina Carducci",
       description: "Amélioration de la performance du site avec SEO, Lighthouse et Wave.",
       imageSrc: "/assets/projets/nina.webp",
+      alt: "Un homme souriant dans la foule avec la main levée.",
       githubLink: "https://github.com/ElenaTrif/ninacarducci",
       websiteLink: "https://ninacarducci-gkx2kvm6b-elenas-projects-e3d2b6db.vercel.app",
+      descButton: "Demo site",
       titleModal: "Projet Nina Carducci",
       descModal: "Optimisation du référencement d'un site de photographe, en identifiant et en améliorant ses performances, son accessibilité et en mettant en place le référencement local, tout en fournissant un rapport détaillé des actions effectuées.",
+      languages: ["SEO", "Lighthouse", "Wave"],
     },
   ], []);
 
@@ -140,7 +158,7 @@ const Projects = () => {
                 rel="noopener noreferrer"
                 onClick={(e) => e.stopPropagation()}
               >
-                Demo Site
+                {project.descButton}
               </a>
             </CardFooter>
           </Card>
@@ -153,7 +171,11 @@ const Projects = () => {
             <ModalHeader>{selectedProject.titleModal}</ModalHeader>
             <ModalBody>
               <p>{selectedProject.descModal}</p>
-              {/* Ajoutez d'autres informations sur le projet ici */}
+              <div className="mt-4 space-x-2">
+                {selectedProject.languages.map((language, index) => (
+                  <Chip key={index}>{language}</Chip>
+                ))}
+              </div>
             </ModalBody>
             <ModalFooter>
               <Button color="secondary" variant="light" onClick={handleCloseModal}>

@@ -12,7 +12,7 @@ const Formation = () => {
             <Card className="max-w-[400px] mt-10">
                 <CardHeader className="flex gap-3">
                     <Image
-                        alt="nextui logo"
+                        alt="logo openclassrooms"
                         height={40}
                         radius="sm"
                         src="/assets/skills/openclassrooms.png"
