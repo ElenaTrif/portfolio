@@ -15,7 +15,7 @@ const Header = () => {
           isBlurred
           width={360}
           alt="Portrait de Novikova Elena"
-          src="/assets/me.webp"
+          src="/assets/me555.webp"
         />
       </div>
       <div className="md:w-1/2 text-center z-10">
