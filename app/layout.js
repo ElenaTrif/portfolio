@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className='dark'>
+    <html lang="fr" className='dark'>
       <body className="bg-gradient-to-b from-purple-900 to-indigo-900 min-h-screen relative">
         <div className="fixed top-0 w-full h-full overflow-hidden pointer-events-none z-0">
           <div className="absolute top-0 left-0 w-full h-full bg-opacity-50 bg-black"></div>
@@ -17,8 +17,8 @@ export default function RootLayout({ children }) {
             className="absolute top-0 left-0 w-full h-full object-cover"
             src="/assets/nuit.png"
             alt="Nuit étoilée"
-            width={1920} // Remplacer la valeur par la largeur réelle de votre image
-            height={1080} // Remplacer la valeur par la hauteur réelle de votre image
+            width={1920} 
+            height={1080} 
             style={{ objectFit: 'cover', objectPosition: 'center' }} 
           />
         </div>
