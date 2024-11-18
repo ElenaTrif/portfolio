@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useCallback, useMemo } from "react";
+import React, { useState, useMemo } from "react";
 import { Card, CardHeader, CardFooter, Image } from "@nextui-org/react";
 import { button as buttonStyles } from "@nextui-org/theme";
 import { GithubIcon } from "./Icons";
