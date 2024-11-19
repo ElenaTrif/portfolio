@@ -1,12 +1,36 @@
-import React from "react";
+'use client';
+
+import React, { useState, useEffect } from "react";
 import { title } from "../tailwind-config";
 import { Card, CardHeader, CardBody, Divider, Chip } from "@nextui-org/react";
+import { useTranslation } from "react-i18next"; // Importer le hook useTranslation
+import i18n from "i18next"; // Importer i18n pour changer la langue
 
 const AboutMe = () => {
+  const { t } = useTranslation(); // Initialiser la traduction
+  const [language, setLanguage] = useState(null); // État pour la langue
+
+  useEffect(() => {
+    // Charger la langue depuis localStorage (ou définir une langue par défaut)
+    const savedLanguage = localStorage.getItem('language') || 'fr';
+    setLanguage(savedLanguage); // Mettre à jour l'état local
+    i18n.changeLanguage(savedLanguage); // Appliquer la langue dans i18n
+  }, []); // Cette effet se lance uniquement après le premier rendu côté client
+
+  // Fonction pour changer la langue
+  const changeLanguage = (lang) => {
+    localStorage.setItem('language', lang); // Sauvegarder la langue dans localStorage
+    setLanguage(lang); // Mettre à jour l'état de la langue
+    i18n.changeLanguage(lang); // Appliquer la nouvelle langue via i18n
+  };
+
+  // Afficher un fallback si la langue n'est pas encore définie
+  if (language === null) return null;
+
   return (
     <div className="space-y-6 mt-12" id="about">
       <h1 className={`${title()} relative`}>
-        A propos de moi
+        {t('aboutme.title')} {/* Traduction pour "A propos de moi" */}
         <span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-b from-[#FF1CF7] to-[#b249f8]"></span>
       </h1>
       <br />
@@ -23,12 +47,12 @@ const AboutMe = () => {
             #
           </Chip>
           <div className="flex flex-col">
-            <p className="text-lg">Qui je suis</p>
+            <p className="text-lg">{t('aboutme.whoAmI')}</p> {/* Traduction pour "Qui je suis" */}
           </div>
         </CardHeader>
         <Divider />
         <CardBody className="flex gap-3">
-          <p>Je m&apos;appelle Elena Novikova, une développeuse web spécialisée dans la conception de sites web interactifs et intuitifs.</p>
+          <p>{t('aboutme.intro')}</p> {/* Traduction pour l'introduction */}
         </CardBody>
       </Card>
       <Card className="max-w-[1000px] lg:w-[50%] lg:ml-auto">
@@ -43,12 +67,12 @@ const AboutMe = () => {
             #
           </Chip>
           <div className="flex flex-col">
-            <p className="text-lg">Ma passion pour le web</p>
+            <p className="text-lg">{t('aboutme.myPassion')}</p> {/* Traduction pour "Ma passion pour le web" */}
           </div>
         </CardHeader>
         <Divider />
         <CardBody className="flex gap-3">
-          <p>Depuis que j&apos;ai découvert ma passion pour le développement web, j&apos;ai consacré mon temps et mon énergie à perfectionner mes compétences dans ce domaine fascinant.</p>
+          <p>{t('aboutme.passion')}</p> {/* Traduction pour la passion */}
         </CardBody>
       </Card>
       <Card className="max-w-[1000px] lg:w-[50%]">
@@ -63,12 +87,12 @@ const AboutMe = () => {
             #
           </Chip>
           <div className="flex flex-col">
-            <p className="text-lg">Mon engagement</p>
+            <p className="text-lg">{t('aboutme.myCommitment')}</p> {/* Traduction pour "Mon engagement" */}
           </div>
         </CardHeader>
         <Divider />
         <CardBody className="flex gap-3">
-          <p>Ma passion pour le développement web ne se limite pas seulement à écrire du code. Je suis également passionnée par l&apos;apprentissage continu et l&apos;exploration de nouvelles technologies et tendances du secteur. Toujours à l&apos;affût des dernières innovations, je m&apos;efforce d&apos;intégrer les meilleures pratiques et les outils les plus avancés dans mes projets pour garantir des résultats de haute qualité.</p>
+          <p>{t('aboutme.commitment')}</p> {/* Traduction pour l'engagement */}
         </CardBody>
       </Card>
       <Card className="max-w-[1000px] lg:w-[50%] lg:ml-auto">
@@ -83,12 +107,12 @@ const AboutMe = () => {
             @
           </Chip>
           <div className="flex flex-col">
-            <p className="text-lg">Contactez-moi</p>
+            <p className="text-lg">{t('aboutme.contactMe')}</p> {/* Traduction pour "Contactez-moi" */}
           </div>
         </CardHeader>
         <Divider />
         <CardBody className="flex gap-3">
-          <p>Si vous êtes intéressé par un projet web passionnant ou si vous souhaitez simplement discuter de vos idées, n&apos;hésitez pas à me contacter. Je suis impatiente de collaborer avec vous et de transformer vos idées en réalité numérique !</p>
+          <p>{t('aboutme.contact')}</p> {/* Traduction pour le contact */}
         </CardBody>
       </Card>
     </div>
