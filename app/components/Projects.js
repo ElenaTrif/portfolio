@@ -1,97 +1,104 @@
-"use client"
+"use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { Card, CardHeader, CardFooter, Image } from "@nextui-org/react";
 import { button as buttonStyles } from "@nextui-org/theme";
 import { GithubIcon } from "./Icons";
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, Chip } from "@nextui-org/react";
+import { useTranslation } from "react-i18next";
 import { title } from "../tailwind-config";
 
 const Projects = () => {
+  const { t } = useTranslation(); // Initialiser la traduction
   const [isOpen, setIsOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false); // Contrôler le rendu après hydratation
 
+  // Utiliser useEffect pour attendre que la langue soit correctement chargée côté client
+  useEffect(() => {
+    setIsLoaded(true); // Le contenu est chargé côté client
+  }, []);
 
   const projects = useMemo(() => [
     {
       id: 1,
-      title: "Argent Bank",
-      description: "Mise en place d'une application bancaire avec React et Redux.",
+      title: t("projects.argentBankTitle"),
+      description: t("projects.argentBankDesc"),
       imageSrc: "/assets/projets/bank-tree.webp",
-      alt: "Un verre transparent avec des monnaies d'ou pousse une plante verte.",
+      alt: t("projects.argentBankAlt"),
       githubLink: "https://github.com/ElenaTrif/ArgentBank",
       websiteLink: "https://github.com/ElenaTrif/ArgentBank",
-      descButton: "Code Source",
-      titleModal: "Projet Argent Bank",
-      descModal: "Développement front-end d'une application bancaire avec React et Redux, intégration avec un back-end via des appels API.",
+      descButton: t("projects.codeSource"),
+      titleModal: t("projects.argentBankModalTitle"),
+      descModal: t("projects.argentBankModalDesc"),
       languages: ["React", "Redux", "API", "Swagger"],
     },
     {
       id: 2,
-      title: "Kasa",
-      description: "Application de location immobilière faite avec React.",
+      title: t("projects.kasaTitle"),
+      description: t("projects.kasaDesc"),
       imageSrc: "/assets/projets/kasa.webp",
-      alt: "Une pièce d'un appartement avec un canapé d'angle, une table et une télévision.",
+      alt: t("projects.kasaAlt"),
       githubLink: "https://github.com/ElenaTrif/kasa",
       websiteLink: "https://github.com/ElenaTrif/kasa",
-      descButton: "Code Source",
-      titleModal: "Projet Kasa",
-      descModal: "Développement d'une application web de location immobilière en utilisant React et React Router, en suivant les maquettes fournies et en utilisant des données simulées extraites d'un fichier JSON.",
+      descButton: t("projects.codeSource"),
+      titleModal: t("projects.kasaModalTitle"),
+      descModal: t("projects.kasaModalDesc"),
       languages: ["React", "SASS", "Figma"],
     },
     {
       id: 3,
-      title: "Sophie Bluel",
-      description: "Portfolio de designer réalisé en HTML, CSS, JavaScript.",
+      title: t("projects.sophieBluelTitle"),
+      description: t("projects.sophieBluelDesc"),
       imageSrc: "/assets/projets/sophie-bluel.webp",
-      alt: "Portrait d'une femme architecte Sophie Bluel.",
+      alt: t("projects.sophieBluelAlt"),
       githubLink: "https://github.com/ElenaTrif/Portfolio-architecte-sophie-bluel",
       websiteLink: "https://github.com/ElenaTrif/Portfolio-architecte-sophie-bluel",
-      descButton: "Code Source",
-      titleModal: "Projet Sophie Bluel",
-      descModal: "Création d'une page web dynamique pour le site d'une architecte d'intérieur en utilisant JavaScript et en communicant avec une API.",
+      descButton: t("projects.codeSource"),
+      titleModal: t("projects.sophieBluelModalTitle"),
+      descModal: t("projects.sophieBluelModalDesc"),
       languages: ["JavaScript", "NodeJs"],
     },
     {
       id: 4,
-      title: "Ohmyfood",
-      description: "Developpement du site des menus des restaurants avec HTML et SASS.",
+      title: t("projects.ohmyfoodTitle"),
+      description: t("projects.ohmyfoodDesc"),
       imageSrc: "/assets/projets/ohmyfood.webp",
-      alt: "Une assiette contenant un repas gastronomique.",
+      alt: t("projects.ohmyfoodAlt"),
       githubLink: "https://github.com/ElenaTrif/ohmyfood",
       websiteLink: "https://ohmyfood-4gwn6re07-elenas-projects-e3d2b6db.vercel.app",
-      descButton: "Demo site",
-      titleModal: "Projet Ohmyfood",
-      descModal: "Amélioration de l'interface mobile-first d'une start-up, en intégrant une maquette responsive et en mettant en œuvre des animations CSS pour améliorer l'expérience utilisateur, tout en utilisant Sass et Git/GitHub.",
-      languages: ["HTML", , "CSS", "SASS"],
+      descButton: t("projects.demoSite"),
+      titleModal: t("projects.ohmyfoodModalTitle"),
+      descModal: t("projects.ohmyfoodModalDesc"),
+      languages: ["HTML", "CSS", "SASS"],
     },
     {
       id: 5,
-      title: "Print it",
-      description: "Dynamisation du site statique d'une imprimerie avec JavaScript.",
+      title: t("projects.printItTitle"),
+      description: t("projects.printItDesc"),
       imageSrc: "/assets/projets/colors.webp",
-      alt: "Rayures de différentes couleurs vives.",
+      alt: t("projects.printItAlt"),
       githubLink: "https://github.com/ElenaTrif/print-it",
       websiteLink: "https://print-it-two.vercel.app",
-      descButton: "Demo site",
-      titleModal: "Projet Print it",
-      descModal: "Initiation au langage JavaScript en dynamisant un site web d'une imprimerie avec un carrousel interactif, démontrant les fondamentaux du développement web interactif.",
+      descButton: t("projects.demoSite"),
+      titleModal: t("projects.printItModalTitle"),
+      descModal: t("projects.printItModalDesc"),
       languages: ["JavaScript", "HTML", "CSS"],
     },
     {
       id: 6,
-      title: "Nina Carducci",
-      description: "Amélioration de la performance du site avec SEO, Lighthouse et Wave.",
+      title: t("projects.ninaCarducciTitle"),
+      description: t("projects.ninaCarducciDesc"),
       imageSrc: "/assets/projets/nina.webp",
-      alt: "Un homme souriant dans la foule avec la main levée.",
+      alt: t("projects.ninaCarducciAlt"),
       githubLink: "https://github.com/ElenaTrif/ninacarducci",
       websiteLink: "https://ninacarducci-gkx2kvm6b-elenas-projects-e3d2b6db.vercel.app",
-      descButton: "Demo site",
-      titleModal: "Projet Nina Carducci",
-      descModal: "Optimisation du référencement d'un site de photographe, en identifiant et en améliorant ses performances, son accessibilité et en mettant en place le référencement local, tout en fournissant un rapport détaillé des actions effectuées.",
+      descButton: t("projects.demoSite"),
+      titleModal: t("projects.ninaCarducciModalTitle"),
+      descModal: t("projects.ninaCarducciModalDesc"),
       languages: ["SEO", "Lighthouse", "Wave"],
     },
-  ], []);
+  ], [t]);
 
   const handleProjectClick = (index) => {
     setIsOpen(true);
@@ -103,10 +110,14 @@ const Projects = () => {
     setSelectedProject(null);
   };
 
+  if (!isLoaded) {
+    return null; // Ne rien rendre tant que le contenu n'est pas chargé côté client
+  }
+
   return (
     <div className="mt-16" id="portfolio">
       <h1 className={`${title()} relative`}>
-        Mes projets
+        {t("projects.title")}
         <span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-b from-[#FF1CF7] to-[#b249f8]"></span>
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 mt-10">
@@ -143,7 +154,7 @@ const Projects = () => {
                   onClick={(e) => e.stopPropagation()}
                 >
                   <GithubIcon size={20} />
-                  GitHub
+                  {t("projects.github")}
                 </a>
               </div>
               <a
@@ -179,7 +190,7 @@ const Projects = () => {
             </ModalBody>
             <ModalFooter>
               <Button color="secondary" variant="light" onClick={handleCloseModal}>
-                Fermer
+                {t("projects.close")}
               </Button>
             </ModalFooter>
           </ModalContent>

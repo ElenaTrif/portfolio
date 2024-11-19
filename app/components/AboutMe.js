@@ -1,5 +1,4 @@
 'use client';
-
 import React, { useState, useEffect } from "react";
 import { title } from "../tailwind-config";
 import { Card, CardHeader, CardBody, Divider, Chip } from "@nextui-org/react";
@@ -52,7 +51,7 @@ const AboutMe = () => {
         </CardHeader>
         <Divider />
         <CardBody className="flex gap-3">
-          <p>{t('aboutme.intro')}</p> {/* Traduction pour l'introduction */}
+          <p dangerouslySetInnerHTML={{ __html: t('aboutme.intro') }} /> {/* Utilisation de dangerouslySetInnerHTML */}
         </CardBody>
       </Card>
       <Card className="max-w-[1000px] lg:w-[50%] lg:ml-auto">
@@ -64,7 +63,7 @@ const AboutMe = () => {
               content: "drop-shadow shadow-black text-white",
             }}
           >
-            #
+            !
           </Chip>
           <div className="flex flex-col">
             <p className="text-lg">{t('aboutme.myPassion')}</p> {/* Traduction pour "Ma passion pour le web" */}
@@ -72,7 +71,7 @@ const AboutMe = () => {
         </CardHeader>
         <Divider />
         <CardBody className="flex gap-3">
-          <p>{t('aboutme.passion')}</p> {/* Traduction pour la passion */}
+          <p dangerouslySetInnerHTML={{ __html: t('aboutme.passion') }} /> {/* Utilisation de dangerouslySetInnerHTML */}
         </CardBody>
       </Card>
       <Card className="max-w-[1000px] lg:w-[50%]">
@@ -84,7 +83,7 @@ const AboutMe = () => {
               content: "drop-shadow shadow-black text-white",
             }}
           >
-            #
+            §
           </Chip>
           <div className="flex flex-col">
             <p className="text-lg">{t('aboutme.myCommitment')}</p> {/* Traduction pour "Mon engagement" */}
@@ -92,7 +91,7 @@ const AboutMe = () => {
         </CardHeader>
         <Divider />
         <CardBody className="flex gap-3">
-          <p>{t('aboutme.commitment')}</p> {/* Traduction pour l'engagement */}
+          <p dangerouslySetInnerHTML={{ __html: t('aboutme.commitment') }} /> {/* Utilisation de dangerouslySetInnerHTML */}
         </CardBody>
       </Card>
       <Card className="max-w-[1000px] lg:w-[50%] lg:ml-auto">
@@ -112,7 +111,7 @@ const AboutMe = () => {
         </CardHeader>
         <Divider />
         <CardBody className="flex gap-3">
-          <p>{t('aboutme.contact')}</p> {/* Traduction pour le contact */}
+          <p dangerouslySetInnerHTML={{ __html: t('aboutme.contact') }} /> {/* Utilisation de dangerouslySetInnerHTML */}
         </CardBody>
       </Card>
     </div>
