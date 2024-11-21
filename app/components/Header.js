@@ -8,16 +8,17 @@ import { GithubIcon } from "./Icons";
 const Header = () => {
   return (
 
-    <div className="md:w-full flex flex-col md:flex-row items-center justify-center gap-4 md:gap-10 py-8 md:py-10">
-      <div className="md:w-1/2 flex justify-center items-center mb-4 md:mb-0">
-        <Image
-          isZoomed
-          isBlurred
-          width={360}
-          alt="Portrait de Novikova Elena"
-          src="/assets/me555.webp"
-        />
-      </div>
+    <div className="md:w-full flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-10 py-8 lg:py-10">
+    {/* Première image */}
+    <div className="lg:w-1/2 flex justify-center items-center mb-4 lg:mb-0 w-full">
+      <Image
+        isZoomed
+        isBlurred
+        className="w-full sm:w-full md:w-[480px] lg:w-[480px] h-full object-cover"
+        alt="Portrait de Novikova Elena"
+        src="/assets/me2.webp"
+      />
+    </div>
       <div className="md:w-1/2 text-center z-10">
         <h1 className={title()}>Transformez </h1>
         <h1 className={title({ color: "violet" })}>vos idées </h1>
@@ -42,13 +43,13 @@ const Header = () => {
           </Link>
         </div>
       </div>
-      <div className="hidden md:block md:w-1/2 flex justify-center items-center mb-4 md:mb-0">
+      <div className="hidden lg:flex lg:w-1/2 justify-center items-center mb-4 lg:mb-0">
         <Image
           isZoomed
           isBlurred
-          width={360}
+          className="w-96 lg:w-[480px]"
           alt="Ordinateur sur la table, les mains tapent sur le clavier"
-          src="/assets/code.webp"
+          src="/assets/me5.jpg"
         />
       </div>
     </div>

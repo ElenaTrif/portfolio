@@ -1,144 +1,182 @@
 'use client';
 
-import React, { useState, useEffect } from "react";
-import {
-  Navbar as NextUINavbar,
-  NavbarContent,
-  NavbarBrand,
-  NavbarMenuToggle,
-  NavbarMenu,
-  NavbarMenuItem,
-} from "@nextui-org/navbar";
+import React, { useState, useEffect, useRef } from "react";
 import NextLink from "next/link";
-import { PortfolioIcon } from "./Icons";
-import { useTranslation } from "react-i18next"; // Importer le hook useTranslation
-import i18n from "i18next"; // Importer i18n pour changer la langue
+import { Avatar } from "@nextui-org/react";
+import { useTranslation } from "react-i18next";
+import i18n from "i18next";
 
 const Navbar = () => {
-  const { t } = useTranslation(); // Initialiser la traduction
+  const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [language, setLanguage] = useState(null); // État pour la langue
+  const [language, setLanguage] = useState(null); // Initialisé à `null` pour éviter l'erreur d'hydratation
+  const menuRef = useRef(null);
 
   useEffect(() => {
-    // Charger la langue depuis localStorage (ou définir une langue par défaut)
-    const savedLanguage = localStorage.getItem('language') || 'fr';
-    setLanguage(savedLanguage); // Mettre à jour l'état local
-    i18n.changeLanguage(savedLanguage); // Appliquer la langue dans i18n
-  }, []); // Cette effet se lance uniquement après le premier rendu côté client
+    // Charger la langue depuis localStorage ou définir une langue par défaut
+    const savedLanguage = localStorage.getItem("language") || "fr";
+    setLanguage(savedLanguage);
+    i18n.changeLanguage(savedLanguage);
 
-  // Fonction pour changer la langue
+    // Ajouter un écouteur pour détecter les clics en dehors du menu
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  // Empêcher le rendu si la langue n'est pas encore définie
+  if (!language) {
+    return null; // Attendre que la langue soit chargée
+  }
+
   const changeLanguage = (lang) => {
-    localStorage.setItem('language', lang); // Sauvegarder la langue dans localStorage
-    setLanguage(lang); // Mettre à jour l'état de la langue
-    i18n.changeLanguage(lang); // Appliquer la nouvelle langue via i18n
+    localStorage.setItem("language", lang);
+    setLanguage(lang);
+    i18n.changeLanguage(lang);
+    setIsMenuOpen(false);
   };
 
-  // Afficher un fallback si la langue n'est pas encore définie
-  if (language === null) return null;
+  const handleMenuItemClick = () => {
+    setIsMenuOpen(false);
+  };
 
   return (
-    <NextUINavbar maxWidth="2xl" position="sticky" className="w-full">
-      <NavbarContent>
-        <NavbarBrand>
-          <NextLink className="flex justify-start items-center gap-2" href="/">
-            <PortfolioIcon />
-            <p className="font-bold text-inherit">NovikovaWeb</p>
-          </NextLink>
-        </NavbarBrand>
-        <ul className="hidden sm:flex gap-2 md:gap-6 justify-start ml-2">
-          <NavbarMenuItem>
-            <NextLink href="#about">
-              <p>{t('navbar.about')}</p> {/* Traduction pour "À propos" */}
+    <nav
+      className={`w-full sticky top-0 z-50 transition-all duration-300 ${
+        isMenuOpen
+          ? "bg-black bg-opacity-80 backdrop-blur-md" // Fond noir avec opacité en mode mobile
+          : "bg-black bg-opacity-80 md:bg-opacity-80 lg:bg-opacity-80 backdrop-blur-md" // Opacité 80 sur desktop/tablette
+      }`}
+    >
+      {/* Conteneur principal */}
+      <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          {/* Logo et nom */}
+          <div className="flex-shrink-0">
+            <NextLink href="/" className="flex items-center gap-2">
+              <Avatar src="/assets/logo22.png" size="sm" />
+              <span className="text-lg font-bold text-gray-900 dark:text-gray-100">
+                NovikovaWeb
+              </span>
             </NextLink>
-          </NavbarMenuItem>
-          <NavbarMenuItem>
-            <NextLink href="#portfolio">
-              <p>{t('navbar.portfolio')}</p> {/* Traduction pour "Projets" */}
-            </NextLink>
-          </NavbarMenuItem>
-          <NavbarMenuItem>
-            <NextLink href="#formation">
-              <p>{t('navbar.formation')}</p> {/* Traduction pour "Formation" */}
-            </NextLink>
-          </NavbarMenuItem>
-          <NavbarMenuItem>
-            <NextLink href="#skills">
-              <p>{t('navbar.skills')}</p> {/* Traduction pour "Compétences" */}
-            </NextLink>
-          </NavbarMenuItem>
-          <NavbarMenuItem>
-            <NextLink href="#contact">
-              <p>{t('navbar.contact')}</p> {/* Traduction pour "Contact" */}
-            </NextLink>
-          </NavbarMenuItem>
-        </ul>
-        <div className="hidden sm:flex items-center gap-4 ml-auto">
-          {/* Boutons pour changer la langue */}
-          <button
-            onClick={() => changeLanguage('fr')}
-            className="px-2 py-1 text-sm bg-gray-200 rounded hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700"
-          >
-            FR
-          </button>
-          <button
-            onClick={() => changeLanguage('ru')}
-            className="px-2 py-1 text-sm bg-gray-200 rounded hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700"
-          >
-            RU
-          </button>
-        </div>
-        <NavbarMenuToggle
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="sm:hidden"
-        />
-      </NavbarContent>
+          </div>
 
-      <NavbarMenu show={isMenuOpen ? "true" : undefined}>
-        <NavbarMenuItem>
-          <NextLink href="#about">
-            <p>{t('navbar.about')}</p>
-          </NextLink>
-        </NavbarMenuItem>
-        <NavbarMenuItem>
-          <NextLink href="#portfolio">
-            <p>{t('navbar.portfolio')}</p>
-          </NextLink>
-        </NavbarMenuItem>
-        <NavbarMenuItem>
-          <NextLink href="#formation">
-            <p>{t('navbar.formation')}</p>
-          </NextLink>
-        </NavbarMenuItem>
-        <NavbarMenuItem>
-          <NextLink href="#skills">
-            <p>{t('navbar.skills')}</p>
-          </NextLink>
-        </NavbarMenuItem>
-        <NavbarMenuItem>
-          <NextLink href="#contact">
-            <p>{t('navbar.contact')}</p>
-          </NextLink>
-        </NavbarMenuItem>
-        {/* Ajout des boutons de langue dans le menu mobile */}
-        <NavbarMenuItem>
-          <div className="flex gap-2 justify-center">
+          {/* Menu principal */}
+          <div className="hidden md:flex items-center space-x-4">
+            <NextLink href="#about" className="text-gray-700 dark:text-gray-200 hover:underline">
+              {t("navbar.about")}
+            </NextLink>
+            <NextLink href="#portfolio" className="text-gray-700 dark:text-gray-200 hover:underline">
+              {t("navbar.portfolio")}
+            </NextLink>
+            <NextLink href="#formation" className="text-gray-700 dark:text-gray-200 hover:underline">
+              {t("navbar.formation")}
+            </NextLink>
+            <NextLink href="#skills" className="text-gray-700 dark:text-gray-200 hover:underline">
+              {t("navbar.skills")}
+            </NextLink>
+            <NextLink href="#contact" className="text-gray-700 dark:text-gray-200 hover:underline">
+              {t("navbar.contact")}
+            </NextLink>
+          </div>
+
+          {/* Boutons de langue */}
+          <div className="hidden md:flex items-center space-x-4">
             <button
-              onClick={() => changeLanguage('fr')}
+              onClick={() => changeLanguage("fr")}
               className="px-2 py-1 text-sm bg-gray-200 rounded hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700"
             >
               FR
             </button>
             <button
-              onClick={() => changeLanguage('ru')}
+              onClick={() => changeLanguage("ru")}
               className="px-2 py-1 text-sm bg-gray-200 rounded hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700"
             >
               RU
             </button>
           </div>
-        </NavbarMenuItem>
-      </NavbarMenu>
-    </NextUINavbar>
+
+          {/* Menu mobile */}
+          <div className="md:hidden">
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="text-gray-700 dark:text-gray-200 focus:outline-none"
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                {isMenuOpen ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16m-7 6h7"
+                  />
+                )}
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Menu déroulant mobile */}
+      {isMenuOpen && (
+        <div
+          ref={menuRef}
+          className="md:hidden absolute top-16 left-0 w-full bg-black bg-opacity-80 backdrop-blur-md text-white transition duration-300 ease-in-out"
+        >
+          <div className="flex flex-col items-center py-4 space-y-4">
+            <NextLink href="#about" onClick={handleMenuItemClick}>
+              {t("navbar.about")}
+            </NextLink>
+            <NextLink href="#portfolio" onClick={handleMenuItemClick}>
+              {t("navbar.portfolio")}
+            </NextLink>
+            <NextLink href="#formation" onClick={handleMenuItemClick}>
+              {t("navbar.formation")}
+            </NextLink>
+            <NextLink href="#skills" onClick={handleMenuItemClick}>
+              {t("navbar.skills")}
+            </NextLink>
+            <NextLink href="#contact" onClick={handleMenuItemClick}>
+              {t("navbar.contact")}
+            </NextLink>
+            <div className="flex space-x-4">
+              <button
+                onClick={() => changeLanguage("fr")}
+                className="px-2 py-1 text-sm bg-gray-200 rounded hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700"
+              >
+                FR
+              </button>
+              <button
+                onClick={() => changeLanguage("ru")}
+                className="px-2 py-1 text-sm bg-gray-200 rounded hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700"
+              >
+                RU
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </nav>
   );
 };
 
