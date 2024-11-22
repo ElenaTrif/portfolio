@@ -21,6 +21,19 @@ const Projects = () => {
 
   const projects = useMemo(() => [
     {
+      id: 0,
+      title: t("projects.svetlanaTitle"),
+      description: t("projects.svetlanaDesc"),
+      imageSrc: "/assets/projets/sveta.webp",
+      alt: t("projects.svetlanaAlt"),
+      githubLink: "https://github.com/ElenaTrif/svetlana-studio",
+      websiteLink: "https://svetlana-studio-5lvn.vercel.app",
+      descButton: t("projects.demoSite"),
+      titleModal: t("projects.svetlanaModalTitle"),
+      descModal: t("projects.svetlanaModalDesc"),
+      languages: ["Next.js", "SEO", "Setmore.com"],
+    },
+    {
       id: 1,
       title: t("projects.argentBankTitle"),
       description: t("projects.argentBankDesc"),

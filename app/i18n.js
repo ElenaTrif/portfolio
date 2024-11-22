@@ -26,6 +26,11 @@ const resources = {
       },
       projects: {
         title: "Mes projets",
+        svetlanaTitle: "Svetlana Studio",
+        svetlanaDesc: "Un site élégant en Next.js pour un institut de beauté.",
+        svetlanaAlt: "Aperçu du site Svetlana Studio",
+        svetlanaModalTitle: "Projet Svetlana Studio",
+        svetlanaModalDesc: "Ce projet consistait à concevoir et développer un site web entièrement responsive et optimisé pour le SEO pour Svetlana Studio avec Next.js. Le site inclut une fonctionnalité de prise de rendez-vous intégrée via Setmore.",
         argentBankTitle: "Argent Bank",
         argentBankDesc: "Mise en place d'une application bancaire avec React et Redux.",
         argentBankAlt: "Un verre transparent avec des monnaies d'où pousse une plante verte.",
@@ -73,6 +78,22 @@ const resources = {
         projectsButton: "Mes projets",
         githubButton: "GitHub",
       },
+      formation: {
+        integrateur: "Intégrateur développeur web",
+        openclassroomsAlt: "Logo Openclassrooms",
+        openclassrooms: "Openclassrooms",
+        description: "Formation en ligne, Titre professionnel niveau 5.",
+        dates: "Juil, 2023 - Mai, 2024",
+      },
+      skills: {
+        title: "Compétences", // Ajout de la traduction pour le titre des compétences
+      },
+      contact: {
+        title: "Contactez-moi",
+      },
+      footer: {
+        rightsReserved: "Tous droits réservés."
+      },
     }
   },
   ru: {
@@ -97,6 +118,11 @@ const resources = {
       },
       projects: {
         title: "Мои проекты",
+        svetlanaTitle: "Svetlana Studio",
+        svetlanaDesc: "Элегантный сайт на Next.js для института красоты.",
+        svetlanaAlt: "Превью сайта Svetlana Studio",
+        svetlanaModalTitle: "Проект Svetlana Studio",
+        svetlanaModalDesc: "Этот проект включал разработку полностью адаптивного и SEO-оптимизированного сайта для Svetlana Studio с использованием Next.js. Сайт включает функцию записи на прием через Setmore.",
         argentBankTitle: "Argent Bank",
         argentBankDesc: "Разработка банковского приложения с использованием React и Redux.",
         argentBankAlt: "Прозрачный стакан с монетами, из которых растет зеленое растение.",
@@ -143,6 +169,22 @@ const resources = {
         subtitle: "Искусство веб-разработки к вашим услугам.",
         projectsButton: "Мои проекты",
         githubButton: "GitHub",
+      },
+      formation: {
+        integrateur: "Разработчик веб-приложений",
+        openclassroomsAlt: "Логотип Openclassrooms",
+        openclassrooms: "Openclassrooms",
+        description: "Онлайн-обучение, профессиональный сертификат уровня 5.",
+        dates: "Июль 2023 - Май 2024",
+      },
+      skills: {
+        title: "Навыки", // Traduction en russe pour le titre des compétences
+      },
+      contact: {
+        title: "Свяжитесь со мной",
+      },
+      footer: {
+        rightsReserved: "Все права защищены."
       },
     }
   }

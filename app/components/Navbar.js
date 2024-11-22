@@ -64,8 +64,8 @@ const Navbar = () => {
             </NextLink>
           </div>
 
-          {/* Boutons de langue pour mobile et desktop */}
-          <div className="md:hidden flex items-center space-x-4">
+          {/* Boutons de langue pour tous les appareils */}
+          <div className="flex items-center space-x-4">
             <button
               onClick={() => changeLanguage("fr")}
               className="px-2 py-1 text-sm bg-gray-200 rounded hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700"
@@ -82,19 +82,19 @@ const Navbar = () => {
 
           {/* Menu principal pour desktop */}
           <div className="hidden md:flex items-center space-x-4">
-            <NextLink href="#about" className="text-gray-700 dark:text-gray-200 hover:underline">
+            <NextLink href="#about" className="text-xl md:text-lg text-gray-700 dark:text-gray-200 hover:underline">
               {t("navbar.about")}
             </NextLink>
-            <NextLink href="#portfolio" className="text-gray-700 dark:text-gray-200 hover:underline">
+            <NextLink href="#portfolio" className="text-xl md:text-lg text-gray-700 dark:text-gray-200 hover:underline">
               {t("navbar.portfolio")}
             </NextLink>
-            <NextLink href="#formation" className="text-gray-700 dark:text-gray-200 hover:underline">
+            <NextLink href="#formation" className="text-xl md:text-lg text-gray-700 dark:text-gray-200 hover:underline">
               {t("navbar.formation")}
             </NextLink>
-            <NextLink href="#skills" className="text-gray-700 dark:text-gray-200 hover:underline">
+            <NextLink href="#skills" className="text-xl md:text-lg text-gray-700 dark:text-gray-200 hover:underline">
               {t("navbar.skills")}
             </NextLink>
-            <NextLink href="#contact" className="text-gray-700 dark:text-gray-200 hover:underline">
+            <NextLink href="#contact" className="text-xl md:text-lg text-gray-700 dark:text-gray-200 hover:underline">
               {t("navbar.contact")}
             </NextLink>
           </div>
@@ -102,7 +102,7 @@ const Navbar = () => {
           {/* Icône mobile */}
           <div className="md:hidden flex items-center space-x-4">
             <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}  // Permet d'ouvrir ou fermer le menu mobile
+              onClick={() => setIsMenuOpen(!isMenuOpen)} // Permet d'ouvrir ou fermer le menu mobile
               className="text-gray-700 dark:text-gray-200 focus:outline-none"
             >
               <svg
@@ -132,19 +132,19 @@ const Navbar = () => {
           className="md:hidden absolute top-16 left-0 w-full bg-black bg-opacity-80 backdrop-blur-md text-white transition duration-300 ease-in-out"
         >
           <div className="flex flex-col items-center py-4 space-y-4">
-            <NextLink href="#about" onClick={handleMenuItemClick}>
+            <NextLink href="#about" onClick={handleMenuItemClick} className="text-xl">
               {t("navbar.about")}
             </NextLink>
-            <NextLink href="#portfolio" onClick={handleMenuItemClick}>
+            <NextLink href="#portfolio" onClick={handleMenuItemClick} className="text-xl">
               {t("navbar.portfolio")}
             </NextLink>
-            <NextLink href="#formation" onClick={handleMenuItemClick}>
+            <NextLink href="#formation" onClick={handleMenuItemClick} className="text-xl">
               {t("navbar.formation")}
             </NextLink>
-            <NextLink href="#skills" onClick={handleMenuItemClick}>
+            <NextLink href="#skills" onClick={handleMenuItemClick} className="text-xl">
               {t("navbar.skills")}
             </NextLink>
-            <NextLink href="#contact" onClick={handleMenuItemClick}>
+            <NextLink href="#contact" onClick={handleMenuItemClick} className="text-xl">
               {t("navbar.contact")}
             </NextLink>
           </div>
