@@ -9,19 +9,17 @@ import i18n from "i18next";
 const Navbar = () => {
   const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [language, setLanguage] = useState(null); // Initialisé à `null` pour éviter l'erreur d'hydratation
+  const [language, setLanguage] = useState(null);
   const menuRef = useRef(null);
 
   useEffect(() => {
-    // Charger la langue depuis localStorage ou définir une langue par défaut
     const savedLanguage = localStorage.getItem("language") || "fr";
     setLanguage(savedLanguage);
     i18n.changeLanguage(savedLanguage);
 
-    // Ajouter un écouteur pour détecter les clics en dehors du menu
     const handleClickOutside = (event) => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
-        setIsMenuOpen(false);
+        setIsMenuOpen(false); // Fermer le menu si on clique à l'extérieur
       }
     };
 
@@ -31,9 +29,8 @@ const Navbar = () => {
     };
   }, []);
 
-  // Empêcher le rendu si la langue n'est pas encore définie
   if (!language) {
-    return null; // Attendre que la langue soit chargée
+    return null;
   }
 
   const changeLanguage = (lang) => {
@@ -51,14 +48,13 @@ const Navbar = () => {
     <nav
       className={`w-full sticky top-0 z-50 transition-all duration-300 ${
         isMenuOpen
-          ? "bg-black bg-opacity-80 backdrop-blur-md" // Fond noir avec opacité en mode mobile
-          : "bg-black bg-opacity-80 md:bg-opacity-80 lg:bg-opacity-80 backdrop-blur-md" // Opacité 80 sur desktop/tablette
+          ? "bg-black bg-opacity-80 backdrop-blur-md"
+          : "bg-black bg-opacity-80 md:bg-opacity-80 lg:bg-opacity-80 backdrop-blur-md"
       }`}
     >
-      {/* Conteneur principal */}
       <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo et nom */}
+          {/* Logo */}
           <div className="flex-shrink-0">
             <NextLink href="/" className="flex items-center gap-2">
               <Avatar src="/assets/logo22.png" size="sm" />
@@ -68,7 +64,23 @@ const Navbar = () => {
             </NextLink>
           </div>
 
-          {/* Menu principal */}
+          {/* Boutons de langue pour mobile et desktop */}
+          <div className="md:hidden flex items-center space-x-4">
+            <button
+              onClick={() => changeLanguage("fr")}
+              className="px-2 py-1 text-sm bg-gray-200 rounded hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700"
+            >
+              FR
+            </button>
+            <button
+              onClick={() => changeLanguage("ru")}
+              className="px-2 py-1 text-sm bg-gray-200 rounded hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700"
+            >
+              RU
+            </button>
+          </div>
+
+          {/* Menu principal pour desktop */}
           <div className="hidden md:flex items-center space-x-4">
             <NextLink href="#about" className="text-gray-700 dark:text-gray-200 hover:underline">
               {t("navbar.about")}
@@ -87,26 +99,10 @@ const Navbar = () => {
             </NextLink>
           </div>
 
-          {/* Boutons de langue */}
-          <div className="hidden md:flex items-center space-x-4">
+          {/* Icône mobile */}
+          <div className="md:hidden flex items-center space-x-4">
             <button
-              onClick={() => changeLanguage("fr")}
-              className="px-2 py-1 text-sm bg-gray-200 rounded hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700"
-            >
-              FR
-            </button>
-            <button
-              onClick={() => changeLanguage("ru")}
-              className="px-2 py-1 text-sm bg-gray-200 rounded hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700"
-            >
-              RU
-            </button>
-          </div>
-
-          {/* Menu mobile */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              onClick={() => setIsMenuOpen(!isMenuOpen)}  // Permet d'ouvrir ou fermer le menu mobile
               className="text-gray-700 dark:text-gray-200 focus:outline-none"
             >
               <svg
@@ -116,28 +112,20 @@ const Navbar = () => {
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                {isMenuOpen ? (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                ) : (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16m-7 6h7"
-                  />
-                )}
+                {/* Menu hamburger pour ouvrir */}
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16m-7 6h7"
+                />
               </svg>
             </button>
           </div>
         </div>
       </div>
 
-      {/* Menu déroulant mobile */}
+      {/* Menu mobile */}
       {isMenuOpen && (
         <div
           ref={menuRef}
@@ -159,20 +147,6 @@ const Navbar = () => {
             <NextLink href="#contact" onClick={handleMenuItemClick}>
               {t("navbar.contact")}
             </NextLink>
-            <div className="flex space-x-4">
-              <button
-                onClick={() => changeLanguage("fr")}
-                className="px-2 py-1 text-sm bg-gray-200 rounded hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700"
-              >
-                FR
-              </button>
-              <button
-                onClick={() => changeLanguage("ru")}
-                className="px-2 py-1 text-sm bg-gray-200 rounded hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700"
-              >
-                RU
-              </button>
-            </div>
           </div>
         </div>
       )}

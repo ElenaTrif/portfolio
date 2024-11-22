@@ -60,7 +60,19 @@ const resources = {
         github: "Voir sur GitHub",
         demoSite: "Voir le site",
         codeSource: "Code Source" // Ajout du texte pour le bouton "Code Source"
-      }
+      },
+      header: {
+        imageAlt1: "Portrait de Novikova Elena",
+        imageAlt2: "Ordinateur sur la table, les mains tapent sur le clavier",
+        title: {
+          part1: "Transformez",
+          part2: "vos idées",
+          part3: "en réalité digitale.",
+        },
+        subtitle: "L'art du développement web, à votre service.",
+        projectsButton: "Mes projets",
+        githubButton: "GitHub",
+      },
     }
   },
   ru: {
@@ -119,7 +131,19 @@ const resources = {
         github: "Посмотреть на GitHub",
         demoSite: "Посмотреть сайт",
         codeSource: "Исходный код" // Traduction en russe pour "Code Source"
-      }
+      },
+      header: {
+        imageAlt1: "Портрет Елены Новиковой",
+        imageAlt2: "Компьютер на столе, руки печатают на клавиатуре",
+        title: {
+          part1: "Превратите",
+          part2: "свои идеи",
+          part3: "в цифровую реальность.",
+        },
+        subtitle: "Искусство веб-разработки к вашим услугам.",
+        projectsButton: "Мои проекты",
+        githubButton: "GitHub",
+      },
     }
   }
 };
