@@ -111,7 +111,7 @@ const resources = {
         myPassion: "Мои профессиональные интересы",
         myCommitment: "Мой подход и опыт",
         contactMe: "Как со мной связаться",
-        intro: "Меня зовут Елена, я веб-разработчик, увлеченная созданием современных, интуитивно понятных и высокопроизводительных пользовательских интерфейсов. Мой подход основан на внимании к деталям, креативности и профессионализме.",
+        intro: "Меня зовут Елена, я  создаю современные, интуитивно понятные и высокопроизводительные пользовательские интерфейсы. Мой подход основан на внимании к деталям, креативности и профессионализме.",
         passion: "Обладая опытом работы с <span class='text-yellow-500 font-bold'>React</span>, <span class='text-yellow-500 font-bold'>Next.js</span>, <span class='text-yellow-500 font-bold'>Redux</span>, а также такими инструментами, как <span class='text-yellow-500 font-bold'>Tailwind CSS</span>, <span class='text-yellow-500 font-bold'>Material UI</span>, я превращаю ваши идеи в высококачественные цифровые продукты. Мои навыки включают интеграцию <span class='text-yellow-500 font-bold'>HTML, SCSS, JavaScript</span>, а также профессиональную <span class='text-yellow-500 font-bold'>SEO</span>-оптимизацию, что гарантирует создание быстрых, функциональных и хорошо индексируемых сайтов.",
         commitment: "Мой опыт охватывает разработку адаптивного дизайна, обеспечивающего комфортное использование сайта на всех типах устройств. Я активно изучаю новые технологии, такие как <span class='text-orange-500 font-bold'>Postman</span>, <span class='text-orange-500 font-bold'>Swagger</span>, а также современные методологии управления проектами. Кроме того, я предлагаю услуги по созданию профессиональных аккаунтов Google (<span class='text-orange-500 font-bold'>Google Business Profile</span>), чтобы ваш бизнес стал видимым в поисковой системе Google, на Google Maps и в локальных запросах.",
         contact: "Если вас интересует захватывающий веб-проект или вы хотите обсудить свои идеи, я всегда готова к диалогу. Обращайтесь в любое удобное для вас время — я на связи и готова помочь в реализации ваших целей."
@@ -162,7 +162,7 @@ const resources = {
         imageAlt1: "Портрет Елены Новиковой",
         imageAlt2: "Компьютер на столе, руки печатают на клавиатуре",
         title: {
-          part1: "Превратите",
+          part1: "Преобразите",
           part2: "свои идеи",
           part3: "в цифровую реальность.",
         },
@@ -197,6 +197,7 @@ i18n
   .init({
     resources, // Ressources de traduction
     fallbackLng: "fr", // Langue par défaut
+    lng: "fr",
     interpolation: {
       escapeValue: false, // React échappe déjà les valeurs par défaut
     },

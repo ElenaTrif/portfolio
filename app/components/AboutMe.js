@@ -2,38 +2,45 @@
 import React, { useState, useEffect } from "react";
 import { title } from "../tailwind-config";
 import { Card, CardHeader, CardBody, Divider, Chip } from "@nextui-org/react";
-import { useTranslation } from "react-i18next"; // Importer le hook useTranslation
-import i18n from "i18next"; // Importer i18n pour changer la langue
+import { useTranslation } from "react-i18next";
+import i18n from "i18next";
 
 const AboutMe = () => {
-  const { t } = useTranslation(); // Initialiser la traduction
-  const [language, setLanguage] = useState(null); // État pour la langue
+  const { t } = useTranslation();
+  const [language, setLanguage] = useState(null);
+
+  // États locaux pour chaque traduction
+  const [whoAmI, setWhoAmI] = useState("");
+  const [myPassion, setMyPassion] = useState("");
+  const [myCommitment, setMyCommitment] = useState("");
+  const [contactMe, setContactMe] = useState("");
 
   useEffect(() => {
-    // Charger la langue depuis localStorage (ou définir une langue par défaut)
-    const savedLanguage = localStorage.getItem('language') || 'fr';
-    setLanguage(savedLanguage); // Mettre à jour l'état local
-    i18n.changeLanguage(savedLanguage); // Appliquer la langue dans i18n
-  }, []); // Cette effet se lance uniquement après le premier rendu côté client
+    // Charger la langue depuis localStorage
+    const savedLanguage = localStorage.getItem("language") || "fr";
+    setLanguage(savedLanguage);
+    i18n.changeLanguage(savedLanguage);
+  }, []);
 
-  // Fonction pour changer la langue
-  const changeLanguage = (lang) => {
-    localStorage.setItem('language', lang); // Sauvegarder la langue dans localStorage
-    setLanguage(lang); // Mettre à jour l'état de la langue
-    i18n.changeLanguage(lang); // Appliquer la nouvelle langue via i18n
-  };
+  useEffect(() => {
+    // Mettre à jour les traductions lorsque la langue change
+    setWhoAmI(t("aboutme.whoAmI"));
+    setMyPassion(t("aboutme.myPassion"));
+    setMyCommitment(t("aboutme.myCommitment"));
+    setContactMe(t("aboutme.contactMe"));
+  }, [t, i18n.language]);
 
-  // Afficher un fallback si la langue n'est pas encore définie
   if (language === null) return null;
 
   return (
     <div className="space-y-6 mt-12" id="about">
       <h1 className={`${title()} relative`}>
-        {t('aboutme.title')} {/* Traduction pour "A propos de moi" */}
+        {t("aboutme.title")}
         <span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-b from-[#FF1CF7] to-[#b249f8]"></span>
       </h1>
       <br />
       <br />
+      {/* Section 1 */}
       <Card className="max-w-[1000px] lg:w-[50%]">
         <CardHeader className="flex gap-3">
           <Chip
@@ -46,14 +53,16 @@ const AboutMe = () => {
             #
           </Chip>
           <div className="flex flex-col">
-            <p className="text-lg">{t('aboutme.whoAmI')}</p> {/* Traduction pour "Qui je suis" */}
+            <p className="text-lg">{whoAmI}</p>
           </div>
         </CardHeader>
         <Divider />
         <CardBody className="flex gap-3">
-          <p dangerouslySetInnerHTML={{ __html: t('aboutme.intro') }} /> {/* Utilisation de dangerouslySetInnerHTML */}
+          <p dangerouslySetInnerHTML={{ __html: t("aboutme.intro") }} />
         </CardBody>
       </Card>
+
+      {/* Section 2 */}
       <Card className="max-w-[1000px] lg:w-[50%] lg:ml-auto">
         <CardHeader className="flex gap-3">
           <Chip
@@ -66,14 +75,16 @@ const AboutMe = () => {
             !
           </Chip>
           <div className="flex flex-col">
-            <p className="text-lg">{t('aboutme.myPassion')}</p> {/* Traduction pour "Ma passion pour le web" */}
+            <p className="text-lg">{myPassion}</p>
           </div>
         </CardHeader>
         <Divider />
         <CardBody className="flex gap-3">
-          <p dangerouslySetInnerHTML={{ __html: t('aboutme.passion') }} /> {/* Utilisation de dangerouslySetInnerHTML */}
+          <p dangerouslySetInnerHTML={{ __html: t("aboutme.passion") }} />
         </CardBody>
       </Card>
+
+      {/* Section 3 */}
       <Card className="max-w-[1000px] lg:w-[50%]">
         <CardHeader className="flex gap-3">
           <Chip
@@ -86,14 +97,16 @@ const AboutMe = () => {
             §
           </Chip>
           <div className="flex flex-col">
-            <p className="text-lg">{t('aboutme.myCommitment')}</p> {/* Traduction pour "Mon engagement" */}
+            <p className="text-lg">{myCommitment}</p>
           </div>
         </CardHeader>
         <Divider />
         <CardBody className="flex gap-3">
-          <p dangerouslySetInnerHTML={{ __html: t('aboutme.commitment') }} /> {/* Utilisation de dangerouslySetInnerHTML */}
+          <p dangerouslySetInnerHTML={{ __html: t("aboutme.commitment") }} />
         </CardBody>
       </Card>
+
+      {/* Section 4 */}
       <Card className="max-w-[1000px] lg:w-[50%] lg:ml-auto">
         <CardHeader className="flex gap-3">
           <Chip
@@ -106,12 +119,12 @@ const AboutMe = () => {
             @
           </Chip>
           <div className="flex flex-col">
-            <p className="text-lg">{t('aboutme.contactMe')}</p> {/* Traduction pour "Contactez-moi" */}
+            <p className="text-lg">{contactMe}</p>
           </div>
         </CardHeader>
         <Divider />
         <CardBody className="flex gap-3">
-          <p dangerouslySetInnerHTML={{ __html: t('aboutme.contact') }} /> {/* Utilisation de dangerouslySetInnerHTML */}
+          <p dangerouslySetInnerHTML={{ __html: t("aboutme.contact") }} />
         </CardBody>
       </Card>
     </div>

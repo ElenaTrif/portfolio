@@ -10,11 +10,13 @@ const Navbar = () => {
   const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [language, setLanguage] = useState(null);
+  const [activeLanguage, setActiveLanguage] = useState(null); // Langue active initiale à null
   const menuRef = useRef(null);
 
   useEffect(() => {
-    const savedLanguage = localStorage.getItem("language") || "fr";
+    const savedLanguage = localStorage.getItem("language") || "fr"; // Valeur par défaut en français
     setLanguage(savedLanguage);
+    setActiveLanguage(savedLanguage); // Initialisation de activeLanguage
     i18n.changeLanguage(savedLanguage);
 
     const handleClickOutside = (event) => {
@@ -29,18 +31,19 @@ const Navbar = () => {
     };
   }, []);
 
-  if (!language) {
-    return null;
+  if (language === null) {
+    return null; // Ne pas rendre la navbar tant que la langue n'est pas déterminée
   }
 
   const changeLanguage = (lang) => {
     localStorage.setItem("language", lang);
     setLanguage(lang);
+    setActiveLanguage(lang); // Mettre à jour la langue active
     i18n.changeLanguage(lang);
     setIsMenuOpen(false);
   };
 
-  const handleMenuItemClick = () => {
+  const handleMenuItemClick = (link) => {
     setIsMenuOpen(false);
   };
 
@@ -68,13 +71,17 @@ const Navbar = () => {
           <div className="flex items-center space-x-4">
             <button
               onClick={() => changeLanguage("fr")}
-              className="px-2 py-1 text-sm bg-gray-200 rounded hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700"
+              className={`px-2 py-1 text-sm bg-gray-200 rounded hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700 ${
+                activeLanguage === "fr" ? "bg-gray-300 dark:bg-gray-700" : ""
+              }`}
             >
               FR
             </button>
             <button
               onClick={() => changeLanguage("ru")}
-              className="px-2 py-1 text-sm bg-gray-200 rounded hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700"
+              className={`px-2 py-1 text-sm bg-gray-200 rounded hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700 ${
+                activeLanguage === "ru" ? "bg-gray-300 dark:bg-gray-700" : ""
+              }`}
             >
               RU
             </button>
@@ -82,19 +89,34 @@ const Navbar = () => {
 
           {/* Menu principal pour desktop */}
           <div className="hidden md:flex items-center space-x-4">
-            <NextLink href="#about" className="text-xl md:text-lg text-gray-700 dark:text-gray-200 hover:underline">
+            <NextLink
+              href="#about"
+              className="text-xl md:text-lg text-gray-700 dark:text-gray-200 hover:underline"
+            >
               {t("navbar.about")}
             </NextLink>
-            <NextLink href="#portfolio" className="text-xl md:text-lg text-gray-700 dark:text-gray-200 hover:underline">
+            <NextLink
+              href="#portfolio"
+              className="text-xl md:text-lg text-gray-700 dark:text-gray-200 hover:underline"
+            >
               {t("navbar.portfolio")}
             </NextLink>
-            <NextLink href="#formation" className="text-xl md:text-lg text-gray-700 dark:text-gray-200 hover:underline">
+            <NextLink
+              href="#formation"
+              className="text-xl md:text-lg text-gray-700 dark:text-gray-200 hover:underline"
+            >
               {t("navbar.formation")}
             </NextLink>
-            <NextLink href="#skills" className="text-xl md:text-lg text-gray-700 dark:text-gray-200 hover:underline">
+            <NextLink
+              href="#skills"
+              className="text-xl md:text-lg text-gray-700 dark:text-gray-200 hover:underline"
+            >
               {t("navbar.skills")}
             </NextLink>
-            <NextLink href="#contact" className="text-xl md:text-lg text-gray-700 dark:text-gray-200 hover:underline">
+            <NextLink
+              href="#contact"
+              className="text-xl md:text-lg text-gray-700 dark:text-gray-200 hover:underline"
+            >
               {t("navbar.contact")}
             </NextLink>
           </div>
@@ -102,8 +124,10 @@ const Navbar = () => {
           {/* Icône mobile */}
           <div className="md:hidden flex items-center space-x-4">
             <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)} // Permet d'ouvrir ou fermer le menu mobile
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-gray-700 dark:text-gray-200 focus:outline-none"
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              title={isMenuOpen ? "Close menu" : "Open menu"}
             >
               <svg
                 className="w-6 h-6"
@@ -112,7 +136,7 @@ const Navbar = () => {
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                {/* Menu hamburger pour ouvrir */}
+                {/* Menu hamburger */}
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -132,19 +156,39 @@ const Navbar = () => {
           className="md:hidden absolute top-16 left-0 w-full bg-black bg-opacity-80 backdrop-blur-md text-white transition duration-300 ease-in-out"
         >
           <div className="flex flex-col items-center py-4 space-y-4">
-            <NextLink href="#about" onClick={handleMenuItemClick} className="text-xl">
+            <NextLink
+              href="#about"
+              onClick={handleMenuItemClick}
+              className="text-xl"
+            >
               {t("navbar.about")}
             </NextLink>
-            <NextLink href="#portfolio" onClick={handleMenuItemClick} className="text-xl">
+            <NextLink
+              href="#portfolio"
+              onClick={handleMenuItemClick}
+              className="text-xl"
+            >
               {t("navbar.portfolio")}
             </NextLink>
-            <NextLink href="#formation" onClick={handleMenuItemClick} className="text-xl">
+            <NextLink
+              href="#formation"
+              onClick={handleMenuItemClick}
+              className="text-xl"
+            >
               {t("navbar.formation")}
             </NextLink>
-            <NextLink href="#skills" onClick={handleMenuItemClick} className="text-xl">
+            <NextLink
+              href="#skills"
+              onClick={handleMenuItemClick}
+              className="text-xl"
+            >
               {t("navbar.skills")}
             </NextLink>
-            <NextLink href="#contact" onClick={handleMenuItemClick} className="text-xl">
+            <NextLink
+              href="#contact"
+              onClick={handleMenuItemClick}
+              className="text-xl"
+            >
               {t("navbar.contact")}
             </NextLink>
           </div>
