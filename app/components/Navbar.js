@@ -36,12 +36,17 @@ const Navbar = () => {
   }
 
   const changeLanguage = (lang) => {
+    console.time("LanguageChange"); // Démarre le chronométrage
     localStorage.setItem("language", lang);
     setLanguage(lang);
-    setActiveLanguage(lang); // Mettre à jour la langue active
-    i18n.changeLanguage(lang);
+    setActiveLanguage(lang); // Met à jour la langue active
+    i18n.changeLanguage(lang, () => {
+      console.timeEnd("LanguageChange"); // Termine le chronométrage
+      console.log(`Language changed to ${lang}`);
+    });
     setIsMenuOpen(false);
   };
+  
 
   const handleMenuItemClick = (link) => {
     setIsMenuOpen(false);
@@ -49,11 +54,10 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`w-full sticky top-0 z-50 transition-all duration-300 ${
-        isMenuOpen
+      className={`w-full sticky top-0 z-50 transition-all duration-300 ${isMenuOpen
           ? "bg-black bg-opacity-80 backdrop-blur-md"
           : "bg-black bg-opacity-80 md:bg-opacity-80 lg:bg-opacity-80 backdrop-blur-md"
-      }`}
+        }`}
     >
       <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
@@ -71,17 +75,19 @@ const Navbar = () => {
           <div className="flex items-center space-x-4">
             <button
               onClick={() => changeLanguage("fr")}
-              className={`px-2 py-1 text-sm bg-gray-200 rounded hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700 ${
-                activeLanguage === "fr" ? "bg-gray-300 dark:bg-gray-700" : ""
-              }`}
+              className={`px-2 py-1 text-sm rounded transition-colors ${activeLanguage === "fr"
+                  ? "bg-gray-300 dark:bg-gray-700 font-bold text-black dark:text-white hover:bg-gray-400 dark:hover:bg-gray-600"
+                  : "bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700"
+                }`}
             >
               FR
             </button>
             <button
               onClick={() => changeLanguage("ru")}
-              className={`px-2 py-1 text-sm bg-gray-200 rounded hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700 ${
-                activeLanguage === "ru" ? "bg-gray-300 dark:bg-gray-700" : ""
-              }`}
+              className={`px-2 py-1 text-sm rounded transition-colors ${activeLanguage === "ru"
+                  ? "bg-gray-300 dark:bg-gray-700 font-bold text-black dark:text-white hover:bg-gray-400 dark:hover:bg-gray-600"
+                  : "bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700"
+                }`}
             >
               RU
             </button>
