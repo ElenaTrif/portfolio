@@ -37,29 +37,36 @@ const Formation = () => {
         {content.title}
         <span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-b from-[#FF1CF7] to-[#b249f8]"></span>
       </h2>
-      <Card className="max-w-[400px] mt-10">
-        <CardHeader className="flex gap-3">
-          <Image
-            alt={content.openclassroomsAlt} // Traduction pour l'alt text de l'image
-            height={40}
-            radius="sm"
-            src="/assets/skills/openclassrooms.png"
-            width={40}
-          />
-          <div className="flex flex-col">
-            <p className="text-md font-bold">{content.integrateur}</p> {/* Traduction pour "Intégrateur développeur web" */}
-            <p className="text-small text-default-500">{content.openclassrooms}</p> {/* Traduction pour "Openclassrooms" */}
-          </div>
-        </CardHeader>
-        <Divider />
-        <CardBody>
-          <p>{content.description}</p> {/* Traduction pour "Formation en ligne, Titre professionnel niveau 5." */}
-        </CardBody>
-        <Divider />
-        <CardFooter>
-          <p>{content.dates}</p> {/* Traduction pour "Jul, 2023 - Mai, 2024" */}
-        </CardFooter>
-      </Card>
+      <a
+        href="assets/diplome.pdf" // Lien vers le PDF (assurez-vous que le fichier est bien dans le dossier public)
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block mt-10"
+      >
+        <Card className="max-w-[400px] hover:shadow-lg transition-shadow">
+          <CardHeader className="flex gap-3">
+            <Image
+              alt={content.openclassroomsAlt} // Traduction pour l'alt text de l'image
+              height={40}
+              radius="sm"
+              src="/assets/skills/openclassrooms.png"
+              width={40}
+            />
+            <div className="flex flex-col">
+              <p className="text-md font-bold">{content.integrateur}</p> {/* Traduction pour "Intégrateur développeur web" */}
+              <p className="text-small text-default-500">{content.openclassrooms}</p> {/* Traduction pour "Openclassrooms" */}
+            </div>
+          </CardHeader>
+          <Divider />
+          <CardBody>
+            <p>{content.description}</p> {/* Traduction pour "Formation en ligne, Titre professionnel niveau 5." */}
+          </CardBody>
+          <Divider />
+          <CardFooter>
+            <p>{content.dates}</p> {/* Traduction pour "Jul, 2023 - Mai, 2024" */}
+          </CardFooter>
+        </Card>
+      </a>
     </div>
   );
 };

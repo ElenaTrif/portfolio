@@ -58,6 +58,7 @@ const Navbar = () => {
           ? "bg-black bg-opacity-80 backdrop-blur-md"
           : "bg-black bg-opacity-80 md:bg-opacity-80 lg:bg-opacity-80 backdrop-blur-md"
         }`}
+        style={{ fontStretch: "93%" }}
     >
       <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
