@@ -65,10 +65,10 @@ const Skills = () => {
 
   return (
     <div className="mt-16" id="skills">
-      <h1 className={`${title()} relative`}>
+      <h2 className={`${title()} relative`}>
         {t('skills.title')} {/* Traduction du titre "Compétences" */}
         <span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-b from-[#FF1CF7] to-[#b249f8]"></span>
-      </h1>
+      </h2>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-8">
         {skills.map((skill, index) => (
           <Card key={index} className="w-full h-[150px] flex flex-col items-center justify-center px-16 md:px-12 lg:px-16">

@@ -34,10 +34,10 @@ const AboutMe = () => {
 
   return (
     <div className="space-y-6 mt-12" id="about">
-      <h1 className={`${title()} relative`}>
+      <h2 className={`${title({ size: "md" })} relative`}>
         {t("aboutme.title")}
         <span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-b from-[#FF1CF7] to-[#b249f8]"></span>
-      </h1>
+      </h2>
       <br />
       <br />
       {/* Section 1 */}
@@ -53,7 +53,9 @@ const AboutMe = () => {
             #
           </Chip>
           <div className="flex flex-col">
-            <p className="text-lg">{whoAmI}</p>
+            <h3 className={`${title({ size: "sm" })}`}>
+              {whoAmI}
+            </h3>
           </div>
         </CardHeader>
         <Divider />
@@ -75,7 +77,7 @@ const AboutMe = () => {
             !
           </Chip>
           <div className="flex flex-col">
-            <p className="text-lg">{myPassion}</p>
+            <h3 className={`${title({ size: "sm" })}`}>{myPassion}</h3>
           </div>
         </CardHeader>
         <Divider />
@@ -97,7 +99,7 @@ const AboutMe = () => {
             §
           </Chip>
           <div className="flex flex-col">
-            <p className="text-lg">{myCommitment}</p>
+            <h3 className={`${title({ size: "sm" })}`}>{myCommitment}</h3>
           </div>
         </CardHeader>
         <Divider />
@@ -119,7 +121,7 @@ const AboutMe = () => {
             @
           </Chip>
           <div className="flex flex-col">
-            <p className="text-lg">{contactMe}</p>
+            <h3 className={`${title({ size: "sm" })}`}>{contactMe}</h3>
           </div>
         </CardHeader>
         <Divider />

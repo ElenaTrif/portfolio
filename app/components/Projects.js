@@ -132,10 +132,10 @@ const Projects = () => {
 
   return (
     <div className="mt-16" id="portfolio">
-      <h1 className={`${title()} relative`}>
+      <h2 className={`${title()} relative`}>
         {t("projects.title")}
         <span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-b from-[#FF1CF7] to-[#b249f8]"></span>
-      </h1>
+      </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 mt-10">
         {projects.map((project, index) => (
           <Card

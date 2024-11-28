@@ -81,7 +81,7 @@ const Header = () => {
           isBlurred
           className="w-96 lg:w-[480px]"
           alt={t("header.altSecondImage")} // Traduction pour la description de l'image
-          src="/assets/me5.jpg"
+          src="/assets/me5.webp"
         />
       </div>
     </div>

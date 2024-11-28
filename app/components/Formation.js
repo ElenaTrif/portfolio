@@ -33,10 +33,10 @@ const Formation = () => {
 
   return (
     <div className="mt-16" id="formation">
-      <h1 className={`${title()} relative`}>
+      <h2 className={`${title()} relative`}>
         {content.title}
         <span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-b from-[#FF1CF7] to-[#b249f8]"></span>
-      </h1>
+      </h2>
       <Card className="max-w-[400px] mt-10">
         <CardHeader className="flex gap-3">
           <Image
