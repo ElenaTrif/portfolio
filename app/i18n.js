@@ -14,12 +14,12 @@ const resources = {
         contact: "Contact",
       },
       aboutme: {
-        title: "A propos de moi",
+        title: "À propos de moi",
         whoAmI: "Qui je suis",
         myPassion: "Mes intérêts professionnels",
         myCommitment: "Mon approche et mon expérience",
         contactMe: "Contactez-moi",
-        intro: "Je m'appelle Elena, une développeuse web passionnée avec une expertise dans la création d'interfaces utilisateur modernes, intuitives et performantes. Mon approche repose sur la rigueur, la créativité et l’attention aux détails.",
+        intro: "Je m'appelle Elena, une développeuse web freelance spécialisée dans la création de sites web modernes et d'applications fonctionnelles. Je travaille à distance en France et en Russie pour des projets sur mesure. Mon approche repose sur la rigueur, la créativité et l’attention aux détails.",
         passion: "Avec une maîtrise de <span class='text-yellow-500 font-bold'>React</span>, <span class='text-yellow-500 font-bold'>Next.js</span>, <span class='text-yellow-500 font-bold'>Redux</span>, ainsi que des outils comme <span class='text-yellow-500 font-bold'>Tailwind CSS</span>, <span class='text-yellow-500 font-bold'>Material UI</span>, je transforme vos idées en produits numériques de haute qualité. Mes compétences en intégration <span class='text-yellow-500 font-bold'>HTML/SCSS/JavaScript</span> et en optimisation <span class='text-yellow-500 font-bold'>SEO</span> garantissent des sites rapides, fonctionnels et bien référencés.",
         commitment: "Mon parcours inclut la maîtrise de la création de designs adaptatifs pour garantir une expérience utilisateur parfaite sur tous les écrans. J'adore explorer de nouvelles technologies, comme <span class='text-orange-500 font-bold'>Postman</span>, <span class='text-orange-500 font-bold'>Swagger</span>, ou encore des méthodologies modernes de gestion de projet. En complément, je propose la création de comptes professionnels Google (<span class='text-orange-500 font-bold'>Google Business Profile</span>) pour assurer la présence de votre entreprise sur Google, Google Maps, et les recherches locales.",
         contact: "Si vous êtes intéressé par un projet web passionnant ou si vous souhaitez simplement discuter de vos idées. N'hésitez pas à me contacter, je reste accessible à tout moment pour répondre à vos besoins."
@@ -113,7 +113,7 @@ const resources = {
         myPassion: "Мои профессиональные интересы",
         myCommitment: "Мой подход и опыт",
         contactMe: "Как со мной связаться",
-        intro: "Меня зовут Елена, я  создаю современные, интуитивно понятные и высокопроизводительные пользовательские интерфейсы. Мой подход основан на внимании к деталям, креативности и профессионализме.",
+        intro: "Меня зовут Елена, я веб-разработчик-фрилансер, специализирующийся на создании современных сайтов и функциональных приложений. Я работаю удаленно с клиентами из Франции и России, реализуя индивидуальные проекты на заказ. Мой подход основан на профессионализме, творческом подходе и внимании к мельчайшим деталям.",
         passion: "Обладая опытом работы с <span class='text-yellow-500 font-bold'>React</span>, <span class='text-yellow-500 font-bold'>Next.js</span>, <span class='text-yellow-500 font-bold'>Redux</span>, а также такими инструментами, как <span class='text-yellow-500 font-bold'>Tailwind CSS</span>, <span class='text-yellow-500 font-bold'>Material UI</span>, я превращаю ваши идеи в высококачественные цифровые продукты. Мои навыки включают интеграцию <span class='text-yellow-500 font-bold'>HTML, SCSS, JavaScript</span>, а также профессиональную <span class='text-yellow-500 font-bold'>SEO</span>-оптимизацию, что гарантирует создание быстрых, функциональных и хорошо индексируемых сайтов.",
         commitment: "Мой опыт охватывает разработку адаптивного дизайна, обеспечивающего комфортное использование сайта на всех типах устройств. Я активно изучаю новые технологии, такие как <span class='text-orange-500 font-bold'>Postman</span>, <span class='text-orange-500 font-bold'>Swagger</span>, а также современные методологии управления проектами. Кроме того, я предлагаю услуги по созданию профессиональных аккаунтов Google (<span class='text-orange-500 font-bold'>Google Business Profile</span>), чтобы ваш бизнес стал видимым в поисковой системе Google, на Google Maps и в локальных запросах.",
         contact: "Если вас интересует захватывающий веб-проект или вы хотите обсудить свои идеи, я всегда готова к диалогу. Обращайтесь в любое удобное для вас время — я на связи и готова помочь в реализации ваших целей."
