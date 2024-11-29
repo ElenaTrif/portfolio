@@ -68,6 +68,45 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <meta name="theme-color" content="#4c51bf" />
+        
+        <script type="application/ld+json" dangerouslySetInnerHTML={{
+          __html: `
+          {
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "name": "Elena Novikova",
+              "url": "https://novikovaweb.vercel.app",
+              "image": "https://novikovaweb.vercel.app/assets/me2.webp",
+              "jobTitle": "Développeuse Web Freelance",
+              "worksFor": {
+                "@type": "Organization",
+                "name": "NovikovaWeb",
+                "url": "https://novikovaweb.vercel.app"
+              },
+              "sameAs": [
+                "https://twitter.com/elena-novi81620",
+                "https://github.com/ElenaTrif",
+                "https://t.me/eletrifa"
+              ],
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Nice",
+                "addressLocality": "Nice",
+                "addressRegion": "Provence-Alpes-Côte d'Azur",
+                "postalCode": "06000",
+                "addressCountry": "FR"
+              },
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+33 658366870",
+                "contactType": "customer service",
+                "areaServed": "FR",
+                "availableLanguage": "French"
+              },
+              "openingHours": "Mo-Su 00:00-23:59",
+              "description": "Développeuse web freelance, spécialisée dans la création de sites web, applications et solutions digitales. Basée à Nice, France, je travaille à distance avec des technologies comme React, Next.js, et Tailwind CSS."
+            }
+        ` }} />
 
         <title>{metadata.title}</title>
       </head>
