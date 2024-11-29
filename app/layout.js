@@ -109,6 +109,62 @@ export default function RootLayout({ children }) {
             }
         ` }} />
 
+        {/* JSON-LD Avis & FAQ */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{
+          __html: `
+          {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "mainEntity": [
+              {
+                "@type": "FAQPage",
+                "mainEntity": [
+                  {
+                    "@type": "Question",
+                    "name": "Quels services propose NovikovaWeb ?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Création de sites web, développement frontend, solutions IT sur mesure, applications web."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "Comment puis-je contacter Elena Novikova ?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Vous pouvez me contacter via mon site web, par email, par téléphone ou sur Telegram."
+                    }
+                  }
+                ]
+              },
+              {
+                "@type": "Review",
+                "author": "Béatrice L.",
+                "datePublished": "2024-11-12",
+                "reviewBody": "Un service de qualité et un site magnifique. Merci Elena !",
+                "name": "Développement d'une boutique en ligne",
+                "reviewRating": {
+                  "@type": "Rating",
+                  "ratingValue": "5",
+                  "bestRating": "5"
+                }
+              },
+              {
+                "@type": "Review",
+                "author": "Jean Lyon",
+                "datePublished": "2024-10-20",
+                "reviewBody": "Excellente collaboration, site livré rapidement et parfaitement optimisé.",
+                "name": "Site vitrine pour entreprise",
+                "reviewRating": {
+                  "@type": "Rating",
+                  "ratingValue": "5",
+                  "bestRating": "5"
+                }
+              }
+            ]
+          }
+        ` }} />
+
         <title>{metadata.title}</title>
       </head>
       <body className="bg-gradient-to-b from-purple-900 to-indigo-900 min-h-screen relative">
