@@ -136,6 +136,11 @@ export default function RootLayout({ children }) {
           }
         ]
       },
+      "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.9",
+              "reviewCount": "57"
+            },
       {
         "@type": "Review",
         "author": {
@@ -150,10 +155,6 @@ export default function RootLayout({ children }) {
           "ratingValue": "5",
           "bestRating": "5"
         },
-        "itemReviewed": {
-          "@type": "Service",
-          "name": "Boutique en ligne"
-        }
       },
       {
         "@type": "Review",
@@ -169,10 +170,6 @@ export default function RootLayout({ children }) {
           "ratingValue": "5",
           "bestRating": "5"
         },
-        "itemReviewed": {
-          "@type": "Service",
-          "name": "Site vitrine pour entreprise"
-        }
       }
     ]
   }
