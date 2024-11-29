@@ -44,6 +44,7 @@ export default function RootLayout({ children }) {
         <meta name="description" content={metadata.description} />
         <meta name="keywords" content={metadata.keywords} />
         <meta name="author" content="Elena Novikova" />
+        <meta name="google-site-verification" content="fwpgdHLJA6PDcR0s7lWzJRlT6wNwANGNIrQHtwaTDr8" />
 
         {/* OpenGraph (SEO et réseaux sociaux) */}
         <meta property="og:type" content={metadata.openGraph.type} />

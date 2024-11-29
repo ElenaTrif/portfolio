@@ -65,7 +65,7 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <NextLink href="/" className="flex items-center gap-2">
-              <Avatar src="/logo8.png" size="sm" />
+              <Avatar src="/logo8.webp" size="sm" />
               <span className="text-lg font-bold text-gray-900 dark:text-gray-100">
                 NovikovaWeb
               </span>
