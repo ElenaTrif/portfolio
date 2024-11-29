@@ -75,16 +75,10 @@ export default function RootLayout({ children }) {
           __html: `
           {
             "@context": "https://schema.org",
-            "@type": "Person",
-            "name": "Elena Novikova",
-            "url": "https://novikovaweb.vercel.app",
-            "image": "https://novikovaweb.vercel.app/assets/me2.webp",
-            "jobTitle": "Développeuse Web Freelance",
-            "worksFor": {
-              "@type": "Organization",
-              "name": "NovikovaWeb",
-              "url": "https://novikovaweb.vercel.app"
-            },
+            "@type": "Organization",
+            "name": "NovikovaWeb",
+            "url": "https://novikovaweb.netlify.app",
+            "image": "https://novikovaweb.netlify.app/assets/me2.webp",
             "sameAs": [
               "https://twitter.com/elena-novi81620",
               "https://github.com/ElenaTrif",
@@ -152,11 +146,8 @@ export default function RootLayout({ children }) {
           __html: `
   {
     "@context": "https://schema.org",
-    "@type": "WebPage",
+    "@type": "FAQPage",
     "mainEntity": [
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
           {
             "@type": "Question",
             "name": "Quels services propose NovikovaWeb ?",
@@ -174,8 +165,6 @@ export default function RootLayout({ children }) {
             }
           }
         ]
-      },  
-    ]
   }
   `
         }} />
