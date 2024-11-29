@@ -73,109 +73,109 @@ export default function RootLayout({ children }) {
         <script type="application/ld+json" dangerouslySetInnerHTML={{
           __html: `
           {
-              "@context": "https://schema.org",
-              "@type": "Person",
-              "name": "Elena Novikova",
-              "url": "https://novikovaweb.vercel.app",
-              "image": "https://novikovaweb.vercel.app/assets/me2.webp",
-              "jobTitle": "Développeuse Web Freelance",
-              "worksFor": {
-                "@type": "Organization",
-                "name": "NovikovaWeb",
-                "url": "https://novikovaweb.vercel.app"
-              },
-              "sameAs": [
-                "https://twitter.com/elena-novi81620",
-                "https://github.com/ElenaTrif",
-                "https://t.me/eletrifa"
-              ],
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Nice",
-                "addressLocality": "Nice",
-                "addressRegion": "Provence-Alpes-Côte d'Azur",
-                "postalCode": "06000",
-                "addressCountry": "FR"
-              },
-              "contactPoint": {
-                "@type": "ContactPoint",
-                "telephone": "+33658366870",
-                "contactType": "customer service",
-                "areaServed": "FR",
-                "availableLanguage": "French"
-              },
-              "openingHours": "Mo-Su 00:00-23:59",
-              "description": "Développeuse web freelance, spécialisée dans la création de sites web, applications et solutions digitales. Basée à Nice, France, je travaille à distance avec des technologies comme React, Next.js, et Tailwind CSS."
-            }
-        ` }} />
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Elena Novikova",
+            "url": "https://novikovaweb.vercel.app",
+            "image": "https://novikovaweb.vercel.app/assets/me2.webp",
+            "jobTitle": "Développeuse Web Freelance",
+            "worksFor": {
+              "@type": "Organization",
+              "name": "NovikovaWeb",
+              "url": "https://novikovaweb.vercel.app"
+            },
+            "sameAs": [
+              "https://twitter.com/elena-novi81620",
+              "https://github.com/ElenaTrif",
+              "https://t.me/eletrifa"
+            ],
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Nice",
+              "addressLocality": "Nice",
+              "addressRegion": "Provence-Alpes-Côte d'Azur",
+              "postalCode": "06000",
+              "addressCountry": "FR"
+            },
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+33658366870",
+              "contactType": "customer service",
+              "areaServed": "FR",
+              "availableLanguage": "French"
+            },
+            "openingHours": "Mo-Su 00:00-23:59",
+            "description": "Développeuse web freelance, spécialisée dans la création de sites web, applications et solutions digitales. Basée à Nice, France, je travaille à distance avec des technologies comme React, Next.js, et Tailwind CSS."
+          }
+          ` }} />
 
         <script type="application/ld+json" dangerouslySetInnerHTML={{
           __html: `
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "mainEntity": [
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
           {
-            "@type": "Question",
-            "name": "Quels services propose NovikovaWeb ?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Création de sites web, développement frontend, solutions IT sur mesure, applications web."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Comment puis-je contacter Elena Novikova ?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Vous pouvez me contacter via mon site web, par email, par téléphone ou sur Telegram."
-            }
-          }
-        ]
-      },
-      "aggregateRating": {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "mainEntity": [
+              {
+                "@type": "FAQPage",
+                "mainEntity": [
+                  {
+                    "@type": "Question",
+                    "name": "Quels services propose NovikovaWeb ?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Création de sites web, développement frontend, solutions IT sur mesure, applications web."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "Comment puis-je contacter Elena Novikova ?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Vous pouvez me contacter via mon site web, par email, par téléphone ou sur Telegram."
+                    }
+                  }
+                ]
+              }
+            ],
+            "aggregateRating": {
               "@type": "AggregateRating",
               "ratingValue": "4.9",
               "reviewCount": "57"
             },
-      {
-        "@type": "Review",
-        "author": {
-          "@type": "Person",
-          "name": "Béatrice L."
-        },
-        "datePublished": "2024-11-12",
-        "reviewBody": "Un service de qualité et un site magnifique. Merci Elena !",
-        "name": "Développement d'une boutique en ligne",
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": "5",
-          "bestRating": "5"
-        },
-      },
-      {
-        "@type": "Review",
-        "author": {
-          "@type": "Person",
-          "name": "Jean Lyon"
-        },
-        "datePublished": "2024-10-20",
-        "reviewBody": "Excellente collaboration, site livré rapidement et parfaitement optimisé.",
-        "name": "Site vitrine pour entreprise",
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": "5",
-          "bestRating": "5"
-        },
-      }
-    ]
-  }
-  `
-        }} />
-
+            "review": [
+              {
+                "@type": "Review",
+                "author": {
+                  "@type": "Person",
+                  "name": "Béatrice L."
+                },
+                "datePublished": "2024-11-12",
+                "reviewBody": "Un service de qualité et un site magnifique. Merci Elena !",
+                "name": "Développement d'une boutique en ligne",
+                "reviewRating": {
+                  "@type": "Rating",
+                  "ratingValue": "5",
+                  "bestRating": "5"
+                }
+              },
+              {
+                "@type": "Review",
+                "author": {
+                  "@type": "Person",
+                  "name": "Jean Lyon"
+                },
+                "datePublished": "2024-10-20",
+                "reviewBody": "Excellente collaboration, site livré rapidement et parfaitement optimisé.",
+                "name": "Site vitrine pour entreprise",
+                "reviewRating": {
+                  "@type": "Rating",
+                  "ratingValue": "5",
+                  "bestRating": "5"
+                }
+              }
+            ]
+          }
+          ` }} />
 
         <title>{metadata.title}</title>
       </head>
