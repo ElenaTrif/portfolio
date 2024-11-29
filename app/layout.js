@@ -99,7 +99,7 @@ export default function RootLayout({ children }) {
               },
               "contactPoint": {
                 "@type": "ContactPoint",
-                "telephone": "+33 658366870",
+                "telephone": "+33658366870",
                 "contactType": "customer service",
                 "areaServed": "FR",
                 "availableLanguage": "French"
@@ -151,7 +151,7 @@ export default function RootLayout({ children }) {
           "bestRating": "5"
         },
         "itemReviewed": {
-          "@type": "CreativeWork",
+          "@type": "Service",
           "name": "Boutique en ligne"
         }
       },
@@ -170,7 +170,7 @@ export default function RootLayout({ children }) {
           "bestRating": "5"
         },
         "itemReviewed": {
-          "@type": "CreativeWork",
+          "@type": "Service",
           "name": "Site vitrine pour entreprise"
         }
       }
